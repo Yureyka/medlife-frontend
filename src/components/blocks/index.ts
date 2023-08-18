@@ -1,0 +1,9 @@
+export { MainBanner } from "./MainBanner/MainBanner";
+export { AboutInfo } from "./AboutInfo/AboutInfo";
+export { Diagnostics } from "./Diagnostics/Diagnostics";
+export { WideImageWrapper } from "./WideImageWrapper/WideImageWrapper";
+export { Advantages } from "./Advantages/Advantages";
+export { Reviews } from "./Reviews/Reviews";
+export { FeedbackForm } from "./FeedbackForm/FeedbackForm";
+export { Services } from "./Services/Services";
+export { Team } from "./Team/Team";

@@ -1,0 +1,31 @@
+.advantageCard {
+    background-color: #F7F7F7;
+    width: 48%;
+    padding: 16px;
+    border: 1px solid #F099371A;
+    border-radius: 16px;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.description {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 32px;
+}
+
+.counter {
+    font-size: 24px;
+    font-weight: 600;
+    color: #F09937;
+}

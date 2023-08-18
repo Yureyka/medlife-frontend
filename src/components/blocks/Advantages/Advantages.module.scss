@@ -1,0 +1,13 @@
+.title {
+    font-size: 56px;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+.cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}

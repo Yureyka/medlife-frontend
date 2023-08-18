@@ -1,0 +1,20 @@
+.breadcrumbs {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 32px;
+
+}
+
+.separator {
+    padding: 0 20px;
+    
+    svg {
+        transform: rotate(45deg);
+        width: 10px;
+        height: 10px;
+
+        path {
+            stroke: #fff
+        }
+    }
+}

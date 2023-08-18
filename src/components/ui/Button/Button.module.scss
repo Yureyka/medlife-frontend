@@ -1,0 +1,93 @@
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+    height: 80px;
+    padding: 8px 8px 8px 24px;
+    border: none;
+    font-size: 24px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #F09937;
+    border-radius: 8px;
+    gap: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: #fff;
+        color: #F09937;
+
+        .buttonIcon {
+            background-color: #F09937;
+
+            svg {
+                transform: rotate(45deg);
+
+                path {
+                    stroke: #fff;
+                }
+            }
+        }
+    }
+}
+
+.buttonIcon {
+    width: 64px;
+    height: 64px;
+    background-color: #fff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+
+    svg {
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+.onlyIcon {
+    padding: 0;
+    height: fit-content;
+
+    .buttonIcon {
+        background-color: #F09937;
+
+        svg {
+            path {
+                transition: all 0.3s ease-in-out;
+                fill: #fff;
+                stroke: #fff;
+            }
+        }
+    }
+
+    &:hover {
+        .buttonIcon {
+            background-color: #fff;
+
+            svg {
+                path {
+                    fill: #F09937;
+                    stroke: #F09937;
+                }
+            }
+        }
+    }
+}
+
+.small {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+}
+
+.large {
+    padding: 1.5rem 2rem;
+    font-size: 1.2rem;
+}
+
+.fullWidth {
+    width: 100%;
+}

@@ -1,0 +1,54 @@
+.footer {}
+
+.info {
+    display: flex;
+    align-items: start;
+    background-color: #F09937;
+    border-radius: 16px;
+    padding: 50px 90px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.legal {
+    width: 60%;
+
+    p {
+        margin-bottom: 20px;
+    }
+}
+
+.docs {
+    margin-top: 54px;
+}
+
+.contactsTitle {
+    font-weight: 400;
+    margin: 32px 0 12px;
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+.bottom {
+    padding: 20px 90px 22px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #484848;
+    display: flex;
+    align-items: center;
+}
+
+.logoWrapper {
+    margin-right: 30px;
+}
+
+.privacyPolicy {
+    margin-left: auto;
+
+    &:visited {
+        color: #484848;
+    }
+}

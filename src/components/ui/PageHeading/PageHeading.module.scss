@@ -1,0 +1,34 @@
+.pageHeading {
+    padding: 42px 0;
+    border-radius: 16px;
+    background-color: #F09937;
+}
+
+.pageTitle {
+    font-size: 56px;
+    font-weight: 500;
+    line-height: 70px;
+    color: #fff;
+}
+
+.headingBottom {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+}
+
+.arrows {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    svg {
+        transform: rotate(135deg);
+        width: 16px;
+        height: 16px;
+
+        path {
+            stroke: #fff;
+        }
+    }
+}
