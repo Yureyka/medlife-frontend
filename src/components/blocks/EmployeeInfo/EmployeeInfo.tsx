@@ -1,31 +1,31 @@
 import React from "react";
 import { Container, Button } from "ui";
+import { declencion } from "helpers";
 
 import styles from "./EmployeeInfo.module.scss";
 
-import testImage from "assets/images/x-ray.jpg";
-
-const INFO = {
-
+interface IEmployeeInfo {
+  experienceYears: number;
+  experience: string[];
+  image: string;
 }
 
-export const EmployeeInfo: React.FC = () => {
+export const EmployeeInfo: React.FC<IEmployeeInfo> = ({experienceYears, experience, image}) => {
   return (
-    <Container>
-      <section className={styles.team}>
-        {TEAM.map(({ fullName, position, portrait }) => (
-          <div key={fullName + Math.random()} className={styles.employeeCard}>
-            <div className={styles.imageWrapper}>
-              <img src={testImage} alt={`${position} ${fullName}`} />
-            </div>
-            <div className={styles.content}>
-              <h5 className={styles.fullName}>{fullName}</h5>
-              <span className={styles.position}>{position}</span>
-              <Button onlyIcon linkButton href="" />
-            </div>
-          </div>
-        ))}
-      </section>
-    </Container>
+    <section className={styles.employeeInfo}>
+      <div className={styles.experience}>
+        <h3 className={styles.experienceTitle}>{`Стаж работы — ${
+          experienceYears
+        } ${declencion(experienceYears, ["год", "года", "лет"])}`}</h3>
+        <ul className={styles.expirienceList}>
+          {experience.map((item: string) => (
+            <li className={styles.experienceItem}>{item}</li>
+          ))}
+        </ul>
+      </div>
+      <div className={styles.portraitWrapper}>
+        <img src={image} alt="" />
+      </div>
+    </section>
   );
 };

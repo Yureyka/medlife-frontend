@@ -6,16 +6,21 @@ import { FeedbackForm } from "blocks";
 interface IPageLayout {
   title: string;
   children: React.ReactNode;
+  withMap?: boolean;
 }
 
-export const PageLayout: React.FC<IPageLayout> = ({ title, children }) => (
+export const PageLayout: React.FC<IPageLayout> = ({
+  title,
+  withMap = false,
+  children,
+}) => (
   <>
     <Header />
     <PageHeading title={title} />
     <Divider />
     {children}
     <Divider />
-    <FeedbackForm />
+    <FeedbackForm withMap={withMap} />
     <Divider />
     <Footer />
   </>

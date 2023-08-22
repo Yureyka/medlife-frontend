@@ -73,7 +73,6 @@ tt,
 var,
 b,
 u,
-i,
 center,
 dl,
 dt,
@@ -151,4 +150,8 @@ a {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+img {
+  display: block;
 }

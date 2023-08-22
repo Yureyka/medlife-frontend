@@ -65,7 +65,7 @@ export const Team: React.FC = () => {
             <div className={styles.content}>
               <h5 className={styles.fullName}>{fullName}</h5>
               <span className={styles.position}>{position}</span>
-              <Button onlyIcon linkButton href="" />
+              <Button onlyIcon linkButton href="/team/123" />
             </div>
           </div>
         ))}

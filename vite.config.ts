@@ -32,6 +32,7 @@ export default defineConfig({
       stores: `${path.join(__dirname, "./src/stores")}`,
       assets: `${path.join(__dirname, "./src/assets")}`,
       icons: `${path.join(__dirname, "./src/assets/icons")}`,
+      helpers: `${path.join(__dirname, "./src/helpers")}`,
     },
   },
 });

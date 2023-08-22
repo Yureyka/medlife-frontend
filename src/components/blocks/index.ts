@@ -7,3 +7,5 @@ export { Reviews } from "./Reviews/Reviews";
 export { FeedbackForm } from "./FeedbackForm/FeedbackForm";
 export { Services } from "./Services/Services";
 export { Team } from "./Team/Team";
+export { EmployeeInfo } from "./EmployeeInfo/EmployeeInfo";
+export { Contacts } from "./Contacts/Contacts";

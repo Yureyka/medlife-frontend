@@ -1,58 +1,32 @@
-import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
-import Slider from "react-slick";
+import React from "react";
+import Slider, { Settings } from "react-slick";
 
-import styles from "./Carousel.module.scss";
+import { Container } from "../Container/Container";
+
+import "./Carousel.scss";
+import "slick-carousel/slick/slick.css";
 
 interface ICarousel {
   children: React.ReactNode[];
 }
 
+const settings: Settings = {
+  dots: false,
+  infinite: false,
+  arrows: false,
+  speed: 2000,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  swipe: true,
+  swipeToSlide: true,
+  autoplay: true,
+  autoplaySpeed: 4000,
+};
+
 export const Carousel: React.FC<ICarousel> = ({ children }) => {
-  const ref: any = useRef();
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? children.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === children.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const handleWheel = (event: React.WheelEvent | any) => {
-    event.preventDefault();
-    if (event.deltaY > 0) {
-      handleNext();
-    } else {
-      handlePrev();
-    }
-  };
-
-  useLayoutEffect(() => {
-    ref.current.addEventListener("wheel", handleWheel, { passive: false });
-    return () => {
-      ref.current.removeEventListener("wheel", handleWheel);
-    };
-  }, []);
-
   return (
-    <div className={styles.carousel}>
-      <div ref={ref} className={styles.slideContainer}>
-        <div
-          className={styles.slides}
-          style={{
-            transform: `translateX(-${currentIndex * 15}%)`,
-          }}
-        >
-          {React.Children.map(children, (child) => (
-            <div className={styles.slide}>{child}</div>
-          ))}
-        </div>
-      </div>
-    </div>
+    <Container>
+      <Slider {...settings}>{children}</Slider>
+    </Container>
   );
 };

@@ -32,7 +32,8 @@
       "reducers": ["src/reducers"],
       "stores": ["src/stores"],
       "assets": ["src/assets"],
-      "icons": ["src/assets/icons"]
+      "icons": ["src/assets/icons"],
+      "helpers": ["src/helpers"]
     }
   },
   "include": ["src"],

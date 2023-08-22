@@ -1,0 +1,52 @@
+.firstLevelItem {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.subList {
+    margin-bottom: 56px;
+
+    li {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 16px;
+        padding-left: 60px;
+        position: relative;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            background-color: #F09937;
+        }
+    }
+}
+
+.additional {
+    strong {
+        font-size: 42px;
+        font-weight: 600;
+        color: rgb(241, 87, 87);
+    }
+
+    p {
+        font-size: 32px;
+        font-weight: 600;
+        margin-top: 32px;
+    }
+}
+
+.infoBlock {
+    margin-bottom: 64px;
+}
+
+.info {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}

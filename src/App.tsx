@@ -1,7 +1,15 @@
 // import React from "react";
 // import { connect } from "react-redux";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { ServicesPage, HomePage, TeamPage } from "pages";
+import {
+  ServicesPage,
+  HomePage,
+  TeamPage,
+  EmployeePage,
+  ContactsPage,
+  InitialAppointmentPage,
+  InternalOrderPage,
+} from "pages";
 
 const App = () => (
   <div className="admin-wrapper">
@@ -9,7 +17,17 @@ const App = () => (
       <Route path="/" element={<HomePage />} />
       <Route path="/services" element={<ServicesPage />} />
       <Route path="/team" element={<TeamPage />} />
-      <Route path="/for_patient/rule" element={<ServicesPage />} />
+      <Route path="/team/123" element={<EmployeePage />} />
+      <Route path="/contacts" element={<ContactsPage />} />
+      <Route
+        path="/for_patient/initial_appointment"
+        element={<InitialAppointmentPage />}
+      />
+      <Route
+        path="/for_patient/internal_order"
+        element={<InternalOrderPage />}
+      />
+      {/* <Route path="/contacts" element={<ContactsPage />} /> */}
     </Routes>
     {/* <Routes>
       <Route

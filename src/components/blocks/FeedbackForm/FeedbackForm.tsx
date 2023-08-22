@@ -55,6 +55,7 @@ export const FeedbackForm: React.FC<IFeedbackForm> = ({ withMap }) => {
         {withMap && (
           <div className={styles.mapWrapper}>
             <iframe
+              name="map"
               className={styles.map}
               src="https://yandex.ru/map-widget/v1/?um=constructor%3A3dc0fa650845ae72add9925d26a253d8663c42565480c5a5a99f457fed2a12e4&amp;source=constructor"
             ></iframe>
