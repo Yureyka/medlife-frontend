@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Footer, Header } from "common";
 import { Container, Divider, PageHeading } from "ui";
 import { FeedbackForm } from "blocks";
@@ -13,15 +13,24 @@ export const PageLayout: React.FC<IPageLayout> = ({
   title,
   withMap = false,
   children,
-}) => (
-  <>
-    <Header />
-    <PageHeading title={title} />
-    <Divider />
-    {children}
-    <Divider />
-    <FeedbackForm withMap={withMap} />
-    <Divider />
-    <Footer />
-  </>
-);
+}) => {
+  useEffect(() => {
+    window.scrollTo({
+      top: -1,
+      behavior: "smooth",
+    });
+  }, []);
+
+  return (
+    <>
+      <Header />
+      <PageHeading title={title} />
+      <Divider />
+      {children}
+      <Divider />
+      <FeedbackForm withMap={withMap} />
+      <Divider />
+      <Footer />
+    </>
+  );
+};

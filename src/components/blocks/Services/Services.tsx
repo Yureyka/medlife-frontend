@@ -14,32 +14,32 @@ const SERVICES = [
   {
     image: tomographyImage,
     name: "Компьютерная томография",
-    href: "",
+    href: "/services/tomography",
   },
   {
     image: xRayImage,
     name: "Рентген",
-    href: "",
+    href: "/services/x-ray",
   },
   {
     image: ultrasonographyImage,
     name: "Ультразвуковое исследование",
-    href: "",
+    href: "/services/ultrasonography",
   },
   {
     image: gastroscopyImage,
     name: "Гастроскопия",
-    href: "",
+    href: "/services/gastroscopy",
   },
   {
     image: cardiogramImage,
     name: "Электрокардиограф",
-    href: "",
+    href: "/services/cardiogram",
   },
   {
     image: fetalImage,
     name: "Фетальный монитор",
-    href: "",
+    href: "/services/fetal",
   },
 ];
 

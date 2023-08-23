@@ -6,3 +6,4 @@ export { MapPoint } from "./MapPoint";
 export { PhoneHollow } from "./PhoneHollow";
 export { Telegram } from "./Telegram";
 export { VK } from "./VK";
+export { Plus } from "./Plus";

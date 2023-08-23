@@ -5,3 +5,5 @@ export { Divider } from "./BlocksDivider/BlocksDivider";
 export { Carousel } from "./Carousel/Carousel";
 export { PageHeading } from "./PageHeading/PageHeading";
 export { Dropdown } from "./Dropdown/Dropdown";
+export { Accordion } from "./Accordion/Accordion";
+export { InfiniteScroll } from "./InfiniteScroll/InfiniteScroll";

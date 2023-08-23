@@ -12,6 +12,7 @@ interface IButton {
   icon?: JSX.Element;
   linkButton?: boolean;
   href?: string;
+  className?: string;
   children?: string;
 }
 
@@ -22,9 +23,10 @@ export const Button: React.FC<IButton> = ({
   icon,
   linkButton,
   href,
+  className,
   ...rest
 }) => {
-  const classNames = cn(styles.button, {
+  const classNames = cn(styles.button, className, {
     [styles.size]: size,
     [styles.fullWidth]: fullWidth,
     [styles.onlyIcon]: onlyIcon,
