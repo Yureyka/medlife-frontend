@@ -7,3 +7,5 @@ export { PhoneHollow } from "./PhoneHollow";
 export { Telegram } from "./Telegram";
 export { VK } from "./VK";
 export { Plus } from "./Plus";
+export { Cross } from "./Cross";
+export { Checkmark } from "./Checkmark";

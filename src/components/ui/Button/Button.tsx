@@ -4,19 +4,10 @@ import cn from "classnames";
 import styles from "./Button.module.scss";
 import { ArrowDiagonal } from "icons";
 import { Link } from "react-router-dom";
-
-interface IButton {
-  size?: "sm" | "lg";
-  fullWidth?: boolean;
-  onlyIcon?: boolean;
-  icon?: JSX.Element;
-  linkButton?: boolean;
-  href?: string;
-  className?: string;
-  children?: string;
-}
+import { IButton } from "interfaces";
 
 export const Button: React.FC<IButton> = ({
+  disabled,
   size,
   fullWidth,
   onlyIcon,
@@ -30,6 +21,7 @@ export const Button: React.FC<IButton> = ({
     [styles.size]: size,
     [styles.fullWidth]: fullWidth,
     [styles.onlyIcon]: onlyIcon,
+    [styles.disabled]: disabled,
   });
 
   const buttonContent = (

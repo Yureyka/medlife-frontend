@@ -5,9 +5,13 @@ header {
     padding: 14px 0 24px !important;
 }
 
-.logoWrapper {}
+.logoWrapper {
+    height: 64px;
+}
 
-.logo {}
+.logo {
+    height: 100%;
+}
 
 .nav {
     display: flex;
@@ -23,7 +27,7 @@ header {
         font-size: 20px;
         font-weight: 600;
         text-decoration: none;
-        color: #000;
+        color: #1F1B1B;
         transition: color 0.3s ease-in-out;
         position: relative;
 

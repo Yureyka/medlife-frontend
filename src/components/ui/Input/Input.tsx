@@ -1,16 +1,7 @@
-import React, { InputHTMLAttributes, ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import cn from "classnames";
 import styles from "./Input.module.scss";
-
-interface IInput extends InputHTMLAttributes<HTMLInputElement> {
-  label: string;
-  value: string;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  type: "text" | "tel";
-  defaultValue?: string;
-}
-
-const PHONE = /(?:\+|\d)[\d\-\(\) ]{9,}\d/g;
+import { IInput } from "interfaces";
 
 export const Input: React.FC<IInput> = ({
   label,
@@ -18,34 +9,21 @@ export const Input: React.FC<IInput> = ({
   onChange,
   type,
   defaultValue,
+  invalidMessage,
   ...inputProps
 }) => {
-  const [isValid, setIsValid] = useState(true);
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const validateOnBlur = (event: ChangeEvent<HTMLInputElement>) => {
-    if (type === "text") {
-      setIsValid(event.target.value.trim() !== "");
-      setErrorMessage("Поле не может быть пустым");
-    } else if (type === "tel") {
-      setIsValid(PHONE.test(value));
-      setErrorMessage("Введите номер в формате +77777777777");
-    }
-  };
-
   return (
     <div className={styles.inputContainer}>
       <input
         placeholder=" "
-        className={cn(styles.input, { [styles.invalid]: !isValid })}
+        className={cn(styles.input, { [styles.invalid]: invalidMessage })}
         value={value}
         onChange={onChange}
         type={type}
-        onBlur={validateOnBlur}
         {...inputProps}
       />
       <label className={styles.label}>{label}</label>
-      {!isValid && <p className={styles.error}>{errorMessage}</p>}
+      {invalidMessage && <p className={styles.error}>{invalidMessage}</p>}
     </div>
   );
 };

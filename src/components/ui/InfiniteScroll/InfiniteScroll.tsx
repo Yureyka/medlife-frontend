@@ -1,32 +1,9 @@
 import React, { useState } from "react";
 import { useInfiniteQuery } from "react-query";
 import { Container } from "ui";
-import axios from "axios";
 
 import styles from "./InfiniteScroll.module.scss";
-
-interface ListItem {
-  id: number;
-  text: string;
-}
-
-interface ApiResponse {
-  data: ListItem[];
-  nextPage: number | null;
-}
-
-interface IInfiniteScroll {
-  size: number;
-  list: any;
-  fetchPage: (pageItem: any) => any;
-}
-
-// const fetchItems = async (page: number): Promise<ApiResponse> => {
-//   const response = await axios.get(
-//     `/api/items?page=${page}&pageSize=${PAGE_SIZE}`
-//   );
-//   return response.data;
-// };
+import { IInfiniteScroll } from "interfaces";
 
 export const InfiniteScroll: React.FC<IInfiniteScroll> = ({
   size = 10,

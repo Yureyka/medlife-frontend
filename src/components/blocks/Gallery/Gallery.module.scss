@@ -1,20 +1,36 @@
 .gallery {
     display: grid;
     grid-gap: 20px;
-    grid-template-rows: auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+
+}
+
+:global(.react-viewer-attribute) {
+    font-size: 20px !important;
+    font-weight: 500;
+    color: #fff !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+:global(.react-viewer-showTotal) {
+    float: none
 }
 
 .galleryItem {
-    background-color: grey;
+    background-color: #f0f0f0;
     padding-bottom: 100%;
     position: relative;
     border-radius: 16px;
     overflow: hidden;
-    border: 2px solid #ffffff;
-    transition: border-color 0.3s ease-in-out;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
 
     &:hover {
-        border-color: #F09937;
+        box-shadow: 0px 0px 22px -4px rgba(0, 0, 0, 0.31);
     }
 
     img {
@@ -24,52 +40,25 @@
         object-fit: cover;
     }
 
-    &-1 {
-        grid-area: 1 / 1 / 2 / 2;
-    }
-
-    &-2 {
-        grid-area: 1 / 2 / 2 / 3;
-    }
-
-    &-3 {
-        grid-area: 1 / 3 / 2 / 4;
-    }
-
-    &-4 {
-        grid-area: 2 / 3 / 3 / 4;
-    }
-
-    &-5 {
-        grid-area: 3 / 3 / 4 / 4;
-    }
-
-    &-6 {
-        grid-area: 2 / 1 / 4 / 3;
-    }
-
-    &-7 {
-        grid-area: 4 / 1 / 5 / 2;
-    }
-
-    &-8 {
-        grid-area: 5 / 1 / 6 / 2;
-    }
-
-    &-9 {
-        grid-area: 6 / 1 / 7 / 2;
-    }
-
-    &-10 {
-        grid-area: 6 / 2 / 7 / 3;
-    }
-
-    &-11 {
-        grid-area: 6 / 3 / 7 / 4;
-    }
-
+    &-1,
+    &-2,
+    &-3,
+    &-5,
+    &-6,
+    &-7,
+    &-8,
+    &-9,
+    &-10,
+    &-11,
     &-0 {
-        grid-area: 4 / 2 / 6 / 4;
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    &-4,
+    &-8 {
+        grid-column: span 2;
+        grid-row: span 2;
     }
 
 }

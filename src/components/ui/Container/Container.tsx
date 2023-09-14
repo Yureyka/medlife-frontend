@@ -1,14 +1,8 @@
-import React, { HTMLAttributes } from "react";
+import React from "react";
 import cn from "classnames";
 
 import styles from "./Container.module.scss";
-
-interface IContainer extends HTMLAttributes<HTMLDivElement> {
-  small?: boolean;
-  large?: boolean;
-  fullWidth?: boolean;
-  onlyIcon?: boolean;
-}
+import { IContainer } from "interfaces";
 
 export const Container: React.FC<IContainer> = ({
   small,
@@ -18,10 +12,7 @@ export const Container: React.FC<IContainer> = ({
   ...rest
 }) => {
   return (
-    <div
-      className={cn(styles.container)}
-      {...rest}
-    >
+    <div className={cn(styles.container)} {...rest}>
       {rest.children}
     </div>
   );

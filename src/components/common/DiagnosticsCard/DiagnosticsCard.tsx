@@ -3,12 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowDiagonal } from "icons";
 
 import styles from "./DiagnosticsCard.module.scss";
-
-interface IDiagnosticsCard {
-  title: string;
-  description: string;
-  href: string;
-}
+import { IDiagnosticsCard } from "interfaces";
 
 export const DiagnosticsCard: React.FC<IDiagnosticsCard> = ({
   title,

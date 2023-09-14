@@ -20,3 +20,4 @@ export { EmployeeInfo } from "./EmployeeInfo/EmployeeInfo";
 export { Contacts } from "./Contacts/Contacts";
 export { Questions } from "./Questions/Questions";
 export { Gallery } from "./Gallery/Gallery";
+export { Prices } from "./Prices/Prices";

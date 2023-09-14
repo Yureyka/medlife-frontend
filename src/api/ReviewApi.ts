@@ -1,10 +1,5 @@
-import {instance} from "./axiosInstance";
-
-interface IReview {
-  name: string;
-  comment: string;
-  date: string;
-}
+import { IReview } from "interfaces";
+import { instance } from "./axiosInstance";
 
 export class ReviewApi {
   static getReviews(): Promise<IReview[]> {

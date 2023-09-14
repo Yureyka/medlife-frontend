@@ -16,13 +16,21 @@ import {
   GastroscopyPage,
   FetalPage,
   GalleryPage,
+  PricesPage,
 } from "pages";
+import {
+  AdminAppointmentPage,
+  AdminCallRequestsPage,
+  AdminGalleryPage,
+  AdminServicesPage,
+  AdminTeamPage,
+} from "adminPages";
+import "./App.css";
 
 const App = () => (
   <div className="admin-wrapper">
     <Routes>
       <Route path="/" element={<HomePage />} />
-
       <Route path="/services" element={<ServicesPage />} />
       <Route path="/services/tomography" element={<TomographyPage />} />
       <Route path="/services/x-ray" element={<XRayPage />} />
@@ -33,13 +41,11 @@ const App = () => (
       <Route path="/services/cardiogram" element={<CardiogramPage />} />
       <Route path="/services/gastroscopy" element={<GastroscopyPage />} />
       <Route path="/services/fetal" element={<FetalPage />} />
-
       <Route path="/team" element={<TeamPage />} />
-      <Route path="/team/123" element={<EmployeePage />} />
-
+      <Route path="/team/:id" element={<EmployeePage />} />
       <Route path="/gallery" element={<GalleryPage />} />
-
       <Route path="/contacts" element={<ContactsPage />} />
+      <Route path="/prices" element={<PricesPage />} />
       <Route
         path="/for_patient/initial_appointment"
         element={<InitialAppointmentPage />}
@@ -48,6 +54,11 @@ const App = () => (
         path="/for_patient/internal_order"
         element={<InternalOrderPage />}
       />
+      <Route path="/admin/services" element={<AdminServicesPage />} />
+      <Route path="/admin/team" element={<AdminTeamPage />} />
+      <Route path="/admin/gallery" element={<AdminGalleryPage />} />
+      <Route path="/admin/call-requests" element={<AdminCallRequestsPage />} />
+      <Route path="/admin/appointment" element={<AdminAppointmentPage />} />
       {/* <Route path="/contacts" element={<ContactsPage />} /> */}
     </Routes>
     {/* <Routes>

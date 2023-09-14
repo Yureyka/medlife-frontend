@@ -7,3 +7,7 @@ export { PageHeading } from "./PageHeading/PageHeading";
 export { Dropdown } from "./Dropdown/Dropdown";
 export { Accordion } from "./Accordion/Accordion";
 export { InfiniteScroll } from "./InfiniteScroll/InfiniteScroll";
+export { TableWrapper as Table } from "./Table/Table";
+export { Modal } from "./Modal/Modal";
+export { Select } from "./Select/Select";
+export { Filter } from "./Filter/Filter";

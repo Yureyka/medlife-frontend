@@ -1,5 +1,12 @@
 import axios, { AxiosRequestConfig, AxiosResponse, AxiosInstance } from "axios";
 
+export type PaginationResponse<T> = {
+  page: string;
+  totalCount: string;
+  filter?: string;
+  data: T;
+};
+
 interface ApiResponse {
   data: any;
 }

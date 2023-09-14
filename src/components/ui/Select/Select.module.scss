@@ -1,0 +1,133 @@
+.selectContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.label {
+  pointer-events: none;
+  position: absolute;
+  top: 8px;
+  font-size: 12px;
+  color: #818181;
+  transition: all 0.3s ease-in-out;
+}
+
+.select {
+  padding: 12px 54px 0 24px;
+  border: 1px solid #f09937;
+  background-color: #fff;
+  border-radius: 8px;
+  font-size: 16px;
+  height: 62px;
+  width: 100%;
+  appearance: none;
+  transition: all 0.3s ease-in-out;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+
+    filter: brightness(0.5);
+    z-index: -1;
+  }
+
+  &:focus-visible {
+    outline: none;
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(240, 153, 55, 0.4);
+    box-shadow: 0px 0px 10px 2px rgba(240, 153, 55, 0.4);
+  }
+
+  &:focus-visible+label,
+  &:not(:placeholder-shown)+label {
+    top: 10px;
+    font-size: 16px;
+  }
+}
+
+.open {
+  box-shadow: 0px 0px 10px 2px rgba(240, 153, 55, 0.4);
+}
+
+.input.invalid {
+  border: 1px solid #f5291d;
+
+  &:focus-visible {
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(245, 41, 29, 0.4);
+    box-shadow: 0px 0px 10px 2px rgba(245, 41, 29, 0.4);
+  }
+}
+
+.error {
+  padding-left: 24px;
+  font-size: 14px;
+  color: #f5291d;
+}
+
+.optionsWrapper {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.optionsList {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #F09937;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  max-height: 194px;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    z-index: 10;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    // border: 6px solid transparent;
+    border-radius: 50px;
+    background-color: #c7c7c7;
+    background-clip: padding-box;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #a3a3a3;
+    background-clip: padding-box;
+  }
+}
+
+.optionItem {
+  padding: 20px 0;
+  cursor: pointer;
+  padding: 8px 24px;
+
+  &:hover {
+    background-color: #ebebeb;
+  }
+}
+
+.arrowIcon {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid #818181;
+  border-bottom: 2px solid #818181;
+}
+
+.selectContent {
+  padding-top: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

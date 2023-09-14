@@ -1,11 +1,8 @@
 import React from "react";
-import { Container, Carousel, Accordion } from "ui";
+import { Container, Accordion } from "ui";
 
 import styles from "./Questions.module.scss";
-
-interface IQuestions {
-  questions: { question: string; answer: string | React.ReactNode }[];
-}
+import { IQuestions } from "interfaces";
 
 export const Questions: React.FC<IQuestions> = ({ questions }) => {
   return (

@@ -5,10 +5,7 @@ import { Container } from "../Container/Container";
 
 import "./Carousel.scss";
 import "slick-carousel/slick/slick.css";
-
-interface ICarousel {
-  children: React.ReactNode[];
-}
+import { ICarousel } from "interfaces";
 
 const settings: Settings = {
   dots: false,

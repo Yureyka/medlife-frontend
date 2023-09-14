@@ -4,11 +4,7 @@ import { Button } from "ui";
 import { Plus } from "icons";
 
 import styles from "./Accordion.module.scss";
-
-interface IAccordion {
-  title: string;
-  content: string | React.ReactNode;
-}
+import { IAccordion } from "interfaces";
 
 export const Accordion: React.FC<IAccordion> = ({ title, content }) => {
   const [expanded, setExpanded] = useState(false);

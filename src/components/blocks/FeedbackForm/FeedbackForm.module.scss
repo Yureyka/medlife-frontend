@@ -36,6 +36,21 @@
     gap: 30px;
 }
 
+.fromWithoutMap {
+    input {
+        height: 80px;
+
+        &:focus-visible+label,
+        &:not(:placeholder-shown)+label {
+            top: 16px;
+        }
+    }
+
+    label {
+        top: 29px;
+    }
+}
+
 .subTitle {
     margin-bottom: 56px;
     font-size: 20px;

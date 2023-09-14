@@ -34,6 +34,8 @@ export default defineConfig({
       icons: `${path.join(__dirname, "./src/assets/icons")}`,
       helpers: `${path.join(__dirname, "./src/helpers")}`,
       api: `${path.join(__dirname, "./src/api")}`,
+      adminPages: `${path.join(__dirname, "./src/admin/pages")}`,
+      interfaces: `${path.join(__dirname, "./src/interfaces")}`,
     },
   },
 });

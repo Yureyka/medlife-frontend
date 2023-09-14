@@ -1,0 +1,56 @@
+.imageUploader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.previewImage {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80px;
+    border: 2px dashed #ccc;
+    color: #818181;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.fileInput {
+    display: none;
+}
+
+.resetButton {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    border: none;
+    background-color: #0000004f;
+    border-radius: 8px;
+    transition: opacity 0.3s ease-in-out;
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+
+    &:hover {
+        opacity: 1;
+    }
+}

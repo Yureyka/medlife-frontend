@@ -2,12 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import cn from "classnames";
 
 import styles from "./Dropdown.module.scss";
-
-interface IDropdown {
-  options: React.ReactNode[];
-  onSelect?: (selectedOption: React.ReactNode) => void;
-  children: React.ReactNode;
-}
+import { IDropdown } from "interfaces";
 
 export const Dropdown: React.FC<IDropdown> = ({
   options,

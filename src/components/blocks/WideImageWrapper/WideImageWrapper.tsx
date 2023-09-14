@@ -2,10 +2,7 @@ import React from "react";
 import { Container } from "ui";
 
 import styles from "./WideImageWrapper.module.scss";
-
-interface IWideImageWrapper {
-  img: string;
-}
+import { IWideImageWrapper } from "interfaces";
 
 export const WideImageWrapper: React.FC<IWideImageWrapper> = ({ img }) => {
   return (

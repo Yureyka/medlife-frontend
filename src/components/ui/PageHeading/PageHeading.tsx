@@ -1,16 +1,12 @@
 import React from "react";
-import cn from "classnames";
 import { Breadcrumbs } from "common";
 import { Container } from "ui";
 
 import styles from "./PageHeading.module.scss";
 import { ArrowDiagonal } from "icons";
+import { IPageHeading } from "interfaces";
 
-interface IPageHeading {
-  title: string;
-}
-
-export const PageHeading: React.FC<IPageHeading> = ({ title, ...rest }) => {
+export const PageHeading: React.FC<IPageHeading> = ({ title }) => {
   return (
     <div className={styles.pageHeading}>
       <Container>

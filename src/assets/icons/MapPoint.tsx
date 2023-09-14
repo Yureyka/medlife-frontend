@@ -13,6 +13,12 @@ export const MapPoint = () => {
         stroke-width="1.5"
         stroke-linecap="round"
       />
+      <path
+        d="M27.5 18C27.5 14.9624 25.0376 12.5 22 12.5C18.9624 12.5 16.5 14.9624 16.5 18C16.5 21.0376 18.9624 23.5 22 23.5C25.0376 23.5 27.5 21.0376 27.5 18Z"
+        stroke="#F09937"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
     </svg>
   );
 };

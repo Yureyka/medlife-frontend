@@ -1,12 +1,7 @@
 import React from "react";
 
 import styles from "./AdvantageCard.module.scss";
-
-interface IAdvantageCard {
-  title: string;
-  description: string;
-  counter: string;
-}
+import { IAdvantageCard } from "interfaces";
 
 export const AdvantageCard: React.FC<IAdvantageCard> = ({
   title,

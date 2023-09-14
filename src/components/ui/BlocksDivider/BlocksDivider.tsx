@@ -1,8 +1,5 @@
 import React from "react";
-
-interface DividerProps {
-  size?: string;
-}
+import { DividerProps } from "src/interfaces/ui";
 
 export const Divider: React.FC<DividerProps> = ({ size = "140px" }) => {
   const dividerStyle: React.CSSProperties = {

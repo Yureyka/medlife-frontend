@@ -1,13 +1,8 @@
 import React, { useEffect } from "react";
 import { Footer, Header } from "common";
-import { Container, Divider, PageHeading } from "ui";
+import { Divider, PageHeading } from "ui";
 import { FeedbackForm } from "blocks";
-
-interface IPageLayout {
-  title: string;
-  children: React.ReactNode;
-  withMap?: boolean;
-}
+import { IPageLayout } from "interfaces";
 
 export const PageLayout: React.FC<IPageLayout> = ({
   title,

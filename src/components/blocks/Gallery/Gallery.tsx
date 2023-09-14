@@ -1,67 +1,43 @@
 import React from "react";
 import cn from "classnames";
-import { Container, Button } from "ui";
+import { Container } from "ui";
+import FsLightbox from "fslightbox-react";
 
 import styles from "./Gallery.module.scss";
 
-import testImage from "assets/images/x-ray.jpg";
-
-const MOCK = [
-  {
-    name: "картинка",
-    description: "картинка",
-    image: "https://random.imagecdn.app/500/150",
-  },
-  {
-    name: "картинка",
-    description: "картинка",
-    image: "https://random.imagecdn.app/500/150",
-  },
-  {
-    name: "картинка",
-    description: "картинка",
-    image: "https://random.imagecdn.app/500/150",
-  },
-
-  {
-    name: "картинка",
-    description: "картинка",
-    image: "https://random.imagecdn.app/500/150",
-  },
-  {
-    name: "картинка",
-    description: "картинка",
-    image: "https://random.imagecdn.app/500/150",
-  },
-  {
-    name: "картинка",
-    description: "картинка",
-    image: "https://random.imagecdn.app/500/150",
-  },
-  {
-    name: "картинка",
-    description: "картинка",
-    image: "https://random.imagecdn.app/500/150",
-  },
-];
+import { useQuery } from "@tanstack/react-query";
+import { GalleryApi } from "api";
 
 export const Gallery: React.FC = () => {
+  const [visible, setVisible] = React.useState(false);
+  const [activeImage, setActiveImage] = React.useState(0);
+
+  const { data } = useQuery(["getGallery"], GalleryApi.getGallery);
+  console.log(visible);
+
   return (
     <Container>
       <section className={styles.gallery}>
-        {new Array(64).fill(undefined).map((elem, index) => (
+        {data?.map(({ image, name }, index) => (
           <div
+            key={name + index}
+            onClick={() => {
+              setVisible(!visible);
+              setActiveImage(index);
+            }}
             className={cn(
               styles.galleryItem,
               styles[`galleryItem-${(index + 1) % 12}`]
             )}
           >
-            <img
-              src={"https://random.imagecdn.app/1280/720" + "?a" + index}
-              alt=""
-            />
+            <img src={`http://localhost:3004/${image}`} alt={name} />
           </div>
         ))}
+        <FsLightbox
+          toggler={visible}
+          sources={data?.map(({ image }) => `http://localhost:3004/${image}`)}
+          sourceIndex={activeImage}
+        />
       </section>
     </Container>
   );

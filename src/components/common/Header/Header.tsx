@@ -7,10 +7,7 @@ import styles from "./Header.module.scss";
 
 import logo from "assets/images/logo.png";
 import { Phone } from "icons";
-
-interface IHeader {
-  isMainPage?: boolean;
-}
+import { IHeader } from "interfaces";
 
 const PATIENT_LINKS = [
   <NavLink to="/for_patient/gov">
