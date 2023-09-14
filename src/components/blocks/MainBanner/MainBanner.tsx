@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Header } from "common";
 import { Button, Container } from "ui";
 
 import styles from "./MainBanner.module.scss";
+import { AppointmentModal } from "blocks";
 
 export const MainBanner: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className={styles.banner}>
       <Container>
@@ -18,7 +25,9 @@ export const MainBanner: React.FC = () => {
             <h3>Ваше здоровье в наших руках</h3>
           </div>
           <div className={styles.appointment}>
-            <Button>записаться на прием</Button>
+            <Button onClick={() => setIsModalOpen(true)}>
+              записаться на прием
+            </Button>
           </div>
         </div>
         <div className={styles.advantages}>
@@ -37,6 +46,7 @@ export const MainBanner: React.FC = () => {
             </span>
           </div>
         </div>
+        <AppointmentModal isOpen={isModalOpen} onClose={handleCloseModal} />
       </Container>
     </div>
   );

@@ -1,0 +1,16 @@
+/* CheckBox.module.scss */
+.checkboxWrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkboxLabel {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .checkboxInput {
+    margin-right: 8px;
+  }
+  

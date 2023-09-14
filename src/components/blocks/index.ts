@@ -5,6 +5,7 @@ export { WideImageWrapper } from "./WideImageWrapper/WideImageWrapper";
 export { Advantages } from "./Advantages/Advantages";
 export { Reviews } from "./Reviews/Reviews";
 export { FeedbackForm } from "./FeedbackForm/FeedbackForm";
+export { AppointmentModal } from "./AppointmentModal/AppointmentModal";
 
 export { Services } from "./Services/Services";
 export { ServiceMainPrices } from "./ServiceMainPrices/ServiceMainPrices";

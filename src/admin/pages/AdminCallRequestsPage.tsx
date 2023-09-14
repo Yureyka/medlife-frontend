@@ -5,11 +5,11 @@ import { AdminLayout } from "./AdminLayout";
 import { CallRequestApi } from "api";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import ReactPaginate from "react-paginate";
-import { ArrowDiagonal } from "icons";
 import { ICallRequest } from "interfaces";
 
 import styles from "./AdminLayout.module.scss";
 import { debounce } from "helpers";
+import { ArrowDiagonal } from "icons";
 
 const COLUMNS = [
   {
@@ -162,6 +162,7 @@ export const AdminCallRequestsPage: React.FC = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   handleSendIsHandled();
+                  handleCloseModal();
                 }}
               >
                 Заявка обработана

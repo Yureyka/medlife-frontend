@@ -126,5 +126,12 @@ export interface IFileLoader {
 }
 
 export interface IAppointmentModal {
-  
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export interface ICheckbox {
+  label: string;
+  checked: boolean;
+  onChange: (checked: boolean) => void;
 }

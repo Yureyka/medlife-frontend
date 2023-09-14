@@ -11,3 +11,4 @@ export { TableWrapper as Table } from "./Table/Table";
 export { Modal } from "./Modal/Modal";
 export { Select } from "./Select/Select";
 export { Filter } from "./Filter/Filter";
+export { Checkbox } from "./Checkbox/Checkbox";

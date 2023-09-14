@@ -9,7 +9,7 @@
   position: absolute;
   top: 20px;
   left: 25px;
-  font-size: 16px;
+  font-size: 0.8em;
   color: #818181;
   transition: all 0.3s ease-in-out;
 }
@@ -18,7 +18,7 @@
   padding: 18px 24px 0;
   border: 1px solid #f09937;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 0.8em;
   height: 62px;
   width: 100%;
   transition: all 0.3s ease-in-out;
@@ -42,7 +42,7 @@
   &:focus-visible+label,
   &:not(:placeholder-shown)+label {
     top: 8px;
-    font-size: 12px;
+    font-size: 0.6em;
   }
 }
 
@@ -58,6 +58,6 @@
 .error {
   margin-top: 8px;
   padding-left: 24px;
-  font-size: 14px;
+  font-size: 0.7em;
   color: #f5291d;
 }

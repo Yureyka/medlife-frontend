@@ -8,7 +8,7 @@
   padding: 0 18px;
   border: 1px solid #f09937;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 0.8em;
   height: 42px;
   width: 100%;
   transition: all 0.3s ease-in-out;
@@ -22,6 +22,6 @@
   &:focus-visible+label,
   &:not(:placeholder-shown)+label {
     top: 8px;
-    font-size: 12px;
+    font-size: 0.6em;
   }
 }

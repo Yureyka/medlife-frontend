@@ -39,5 +39,7 @@ export {
   type IFilter,
   type IMultipleInput,
   type IFileLoader,
+  type IAppointmentModal,
+  type ICheckbox,
 } from "./ui";
 export { type IHeader } from "./common";

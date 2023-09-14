@@ -1,3 +1,5 @@
+import { IOption } from "./ui";
+
 export interface IGallery {
   name: string;
   description: string;
@@ -83,9 +85,10 @@ export interface IAppointment {
   _id?: string;
   name: string;
   phone: string;
-  service: string;
+  service: IOption;
   online?: string;
   message?: string;
+  isHadled?: boolean;
 }
 
 export type AppointmentPayload = {

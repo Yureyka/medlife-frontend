@@ -41,7 +41,7 @@ export const Select: React.FC<ISelect> = ({
   };
 
   return (
-    <div className={styles.selectContainer}>
+    <div className={styles.selectContainer} ref={dropdownRef}>
       <div
         className={cn(styles.select, { [styles.open]: isOpen })}
         onClick={() => {
@@ -53,7 +53,7 @@ export const Select: React.FC<ISelect> = ({
         <div className={styles.selectContent}>{selectedValue?.label}</div>
       </div>
       {isOpen && (
-        <div className={styles.optionsWrapper} ref={dropdownRef}>
+        <div className={styles.optionsWrapper}>
           <ul className={styles.optionsList}>
             {options.map((option) => (
               <li

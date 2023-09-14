@@ -1,33 +1,79 @@
-import React from "react";
-import { Container, Input, Modal } from "ui";
-import { IAppointment } from "interfaces";
+import React, { useState } from "react";
+import { Button, Input, Modal, Select } from "ui";
+import { IAppointment, IAppointmentModal, IServiceGroup } from "interfaces";
 
-import styles from "./Contacts.module.scss";
+import styles from "./AppointmentModal.module.scss";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { AppointmentApi, ServicesApi } from "api";
 
-import { Link } from "react-router-dom";
+export const AppointmentModal: React.FC<IAppointmentModal> = ({
+  isOpen,
+  onClose,
+}) => {
+  const [appointment, setAppointment] = useState<IAppointment>({
+    name: "",
+    phone: "+7",
+    service: { label: "", value: "" },
+    online: "",
+    message: "",
+  });
 
-export const AppointmentModal: React.FC<IAppointment> = () => {
-    const
+  const { data: groups } = useQuery(
+    ["getServiceGroups"],
+    ServicesApi.getGroups
+  );
 
-    const handleChangeState = <T extends keyof RowSerivce>(
-        fieldName: T,
-        value: RowSerivce[T]
-      ) => {
-        setRowData((prev) => {
+  const createMutation = useMutation(
+    ["createAppointmentRequest"],
+    AppointmentApi.createAppointmentRequest
+  );
+
+  const handleChangeState = <T extends keyof IAppointment>(
+    fieldName: T,
+    value: IAppointment[T]
+  ) => {
+    setAppointment((prev) => {
+      return {
+        ...prev,
+        [fieldName]: value,
+      } as IAppointment;
+    });
+  };
+
+  const formatGroupsOptions = (groups?: IServiceGroup[]) => {
+    return groups
+      ? groups.map((group) => {
           return {
-            ...prev,
-            [fieldName]: value,
-          } as RowSerivce;
-        });
-      };
+            label: group.name,
+            value: group._id,
+          };
+        })
+      : [];
+  };
+
+  const handleSendData = () => {
+    createMutation.mutate({
+      name: appointment!.name,
+      phone: appointment!.phone,
+      service: appointment!.service.value,
+      // serviceGroupId: rowData!.serviceGroup.value,
+    });
+
+    onClose();
+  };
 
   return (
-    <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+    <div className={styles.modal}>
+      <Modal isOpen={isOpen} onClose={onClose}>
       <form>
+        <h2 className={styles.title}>Онлайн запись</h2>
+        <h6 className={styles.subtitle}>
+          Заполните форму и мы свяжемся с вами для подтверждения записи
+        </h6>
         <div className={styles.formInput}>
           <Input
-            label="Название"
-            value={rowData?.name || ""}
+            label="Имя"
+            value={appointment!.name || ""}
             onChange={(e) => {
               handleChangeState("name", e.target.value);
             }}
@@ -35,50 +81,31 @@ export const AppointmentModal: React.FC<IAppointment> = () => {
         </div>
         <div className={styles.formInput}>
           <Input
-            label="Цена"
-            type="number"
-            value={String(rowData?.price)}
+            label="Телефон"
+            type="tel"
+            value={appointment!.phone}
             onChange={(e) => {
-              handleChangeState("price", Number(e.target.value));
+              handleChangeState("phone", e.target.value);
             }}
           />
         </div>
         <div className={styles.formInput}>
           <Select
-            label="Группа"
-            defaultSelected={rowData?.serviceGroup}
-            options={formatGroupsOptions(serviceGroups.data)}
+            label="Услуга"
+            defaultSelected={appointment?.service}
+            options={formatGroupsOptions(groups)}
             onSelect={(val) => {
-              handleChangeState("serviceGroup", val);
+              handleChangeState("service", val);
             }}
           />
         </div>
         <div className={styles.buttonGroup}>
-          <button
-            className={cn(styles.sendButton, {
-              [styles.disabled]: checkIsEmpty(),
-            })}
-            onClick={(e) => {
-              e.preventDefault();
-              handleSendData();
-            }}
-          >
-            {rowData?._id ? "Обновить" : "Создать"}
-          </button>
-          {rowData?._id && (
-            <button
-              className={styles.deleteButton}
-              onClick={(e) => {
-                e.preventDefault();
-                deleteMutation.mutate(rowData!._id);
-                handleCloseModal();
-              }}
-            >
-              Удалить
-            </button>
-          )}
+          <Button fullWidth onClick={handleSendData}>
+            записаться
+          </Button>
         </div>
       </form>
     </Modal>
+    </div>
   );
 };
