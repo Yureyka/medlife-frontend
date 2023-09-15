@@ -1,8 +1,14 @@
+@import "styles/responsive.scss";
+
 .title {
     font-size: 2.8em;
     font-weight: 500;
     margin-bottom: 18px;
     color: #1F1B1B;
+
+    @include tablet {
+        font-size: 1.6em;
+    }
 }
 
 .cards {
@@ -10,6 +16,10 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     margin-bottom: 32px;
+
+    @include tablet {
+        grid-template-columns: 1fr;
+    }
 }
 
 .card {
@@ -20,6 +30,10 @@
     justify-content: space-between;
     flex-direction: column;
     min-height: 234px;
+
+    @include tablet {
+        min-height: auto;
+    }
 }
 
 .serviceTitle {
@@ -27,24 +41,54 @@
     font-weight: 600;
     margin-bottom: 16px;
     color: #1F1B1B;
+
+    @include tablet {
+        font-size: 1em;
+    }
 }
 
 .content {
     display: flex;
     align-items: end;
     justify-content: space-between;
+
+    @include tablet {
+        align-items: start;
+        flex-direction: column;
+
+        button {
+            width: 100% !important;
+        }
+    }
 }
 
 .serviceSubtitle {
     font-size: 1em;
     margin-bottom: 10px;
     color: #818181;
+
+    @include tablet {
+        font-size: 0.8em;
+    }
 }
 
 .price {
     font-size: 1.6em;
     font-weight: 600;
     color: #1F1B1B;
+
+    @include tablet {
+        font-size: 1em;
+        margin-bottom: 12px;
+    }
+}
+
+.priceInfo {
+    @include tablet {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
 }
 
 .contactPriceInfo {
@@ -52,4 +96,8 @@
     color: #818181;
     text-align: center;
     padding: 0 15%;
+
+    @include mobile-lg {
+        font-size: 0.6em;
+    }
 }

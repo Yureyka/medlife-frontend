@@ -1,6 +1,12 @@
+@import "styles/responsive.scss";
+
 .aboutInfo {
     display: flex;
     justify-content: space-between;
+
+    @include tablet {
+        flex-direction: column;
+    }
 }
 
 .info {
@@ -9,12 +15,20 @@
     display: flex;
     flex-direction: column;
     justify-content: start;
+
+    @include tablet {
+        width: 100%;
+    }
 }
 
 .title {
     font-size: 2em;
     font-weight: 500;
     margin-bottom: 60px;
+
+    @include tablet {
+        font-size: 1.6em;
+    }
 }
 
 .listItem {
@@ -23,6 +37,10 @@
     font-size: 1em;
     font-weight: 500;
     margin-bottom: 16px;
+
+    @include tablet {
+        font-size: 0.8em;
+    }
 }
 
 .marker {
@@ -44,6 +62,10 @@
     svg {
         transform: rotate(90deg);
     }
+
+    @include tablet {
+        display: none;
+    }
 }
 
 .aboutImg {
@@ -51,6 +73,11 @@
     height: 516px;
     border-radius: 16px;
     overflow: hidden;
+
+    @include tablet {
+        margin-top: 12px;
+        width: 100%;
+    }
 
     img {
         width: 100%;

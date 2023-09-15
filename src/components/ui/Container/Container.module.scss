@@ -1,24 +1,44 @@
+@import "styles/responsive.scss";
+
 .container {
     width: 100%;
     margin: 0 auto;
 
-    @media (min-width: 576px) {
-        max-width: 560px;
+    @include desktop {
+        max-width: 1024px;
     }
 
-    @media (min-width: 768px) {
+    @include desktop-lg {
+        max-width: 1300px;
+    }
+
+    @include tablet {
         max-width: 750px;
     }
 
-    @media (min-width: 992px) {
-        max-width: 970px;
+
+    @include mobile-lg {
+        max-width: 100%;
+        padding: 0 12px;
     }
 
-    @media (min-width: 1200px) {
-        max-width: 1140px;
-    }
+    // @media (min-width: 576px) {
+    //     max-width: 560px;
+    // }
 
-    @media (min-width: 1400px) {
-        max-width: 1366px;
-    }
+    // @media (min-width: 768px) {
+    //     max-width: 750px;
+    // }
+
+    // @media (min-width: 992px) {
+    //     max-width: 970px;
+    // }
+
+    // @media (min-width: 1200px) {
+    //     max-width: 1140px;
+    // }
+
+    // @media (min-width: 1400px) {
+    //     max-width: 1366px;
+    // }
 }

@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import styles from "./FileLoader.module.scss";
 import { IFileLoader } from "interfaces";
+import { BACKEND_URL } from "helpers";
 
 export const FileLoader: React.FC<IFileLoader> = ({
   onImageUpload,
@@ -45,7 +46,7 @@ export const FileLoader: React.FC<IFileLoader> = ({
             <img
               src={
                 defaultImg
-                  ? `http://localhost:3004/${defaultImg}`
+                  ? `${BACKEND_URL}/${defaultImg}`
                   : URL.createObjectURL(selectedImage!)
               }
               alt="Selected"

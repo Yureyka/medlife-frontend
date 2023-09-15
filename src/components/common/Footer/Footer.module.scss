@@ -1,3 +1,5 @@
+@import "styles/responsive.scss";
+
 .footer {}
 
 .info {
@@ -9,6 +11,16 @@
     font-size: 1em;
     font-weight: 500;
     color: #fff;
+
+    @include tablet {
+        padding: 48px;
+        font-size: 0.8em;
+        flex-direction: column;
+    }
+
+    @include mobile-sm {
+        padding: 16px;
+    }
 }
 
 .legal {
@@ -16,6 +28,10 @@
 
     p {
         margin-bottom: 20px;
+    }
+
+    @include tablet {
+        width: 100%;
     }
 }
 
@@ -25,10 +41,19 @@
 
 .contactsTitle {
     font-weight: 400;
+    font-size: 0.8em;
     margin: 32px 0 12px;
 
     &:first-child {
         margin-top: 0;
+    }
+
+    @include tablet {
+        font-size: 1em;
+
+        &:first-child {
+            margin-top: 32px;
+        }
     }
 }
 
@@ -39,14 +64,29 @@
     color: #484848;
     display: flex;
     align-items: center;
+
+    @include tablet {
+        padding: 16px 0;
+        font-size: 0.8em;
+        flex-direction: column;
+    }
 }
 
 .logoWrapper {
     margin-right: 30px;
+
+    @include tablet {
+        margin: 0 auto;
+    }
 }
 
 .privacyPolicy {
     margin-left: auto;
+    white-space: nowrap;
+
+    @include tablet {
+        margin: 0 auto;
+    }
 
     &:visited {
         color: #484848;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import cn from "classnames";
 import { Link, NavLink } from "react-router-dom";
 import { Button, Container, Dropdown } from "ui";
@@ -29,6 +29,34 @@ const PATIENT_LINKS = [
 ];
 
 export const Header: React.FC<IHeader> = ({ isMainPage }) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useLayoutEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 1023) {
+        setIsMobile(true);
+        setIsMobileMenuOpen(false);
+      } else {
+        setIsMobile(false);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    window.document.body.style.overflow = isMobileMenuOpen ? "hidden" : "auto";
+  }, [isMobileMenuOpen]);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <Container>
       <header className={styles.header}>
@@ -37,7 +65,25 @@ export const Header: React.FC<IHeader> = ({ isMainPage }) => {
         </Link>
 
         <>
-          <nav className={cn(styles.nav, { [styles.isMainPage]: isMainPage })}>
+          {isMobile ? (
+            <div
+              className={cn(styles.mobileMenuButton, {
+                [styles.isButtonActive]: isMobileMenuOpen,
+              })}
+              onClick={toggleMobileMenu}
+            >
+              <div />
+              <div />
+              <div />
+            </div>
+          ) : null}
+          <nav
+            className={cn(styles.nav, {
+              [styles.isMainPage]: isMainPage,
+              [styles.isMobile]: isMobile,
+              [styles.isOpened]: isMobileMenuOpen,
+            })}
+          >
             <div className={styles.navItem}>
               <NavLink className={styles.navLink} to="/services">
                 услуги
@@ -76,14 +122,21 @@ export const Header: React.FC<IHeader> = ({ isMainPage }) => {
                 контакты
               </NavLink>
             </div>
-            <div className={styles.callButton}>
-              <Button
-                onlyIcon
-                icon={<Phone />}
-                linkButton
-                href="tel:+777777777777"
-              />
-            </div>
+            {isMobile ? (
+              <div className={styles.callNumbers}>
+                <a href="tel:+79786041600">+7 (978) 604-16-00</a>
+                <a href="tel:+79786041601"> +7 (978) 604-16-01</a>
+              </div>
+            ) : (
+              <div className={styles.callButton}>
+                <Button
+                  onlyIcon
+                  icon={<Phone />}
+                  linkButton
+                  href="tel:+79786041600"
+                />
+              </div>
+            )}
           </nav>
         </>
       </header>

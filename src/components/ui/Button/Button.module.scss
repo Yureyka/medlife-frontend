@@ -1,3 +1,5 @@
+@import "styles/responsive.scss";
+
 .button {
     display: flex;
     align-items: center;
@@ -31,6 +33,11 @@
             }
         }
     }
+
+    @include tablet {
+        height: 60px;
+        font-size: 0.8em;
+    }
 }
 
 .buttonIcon {
@@ -45,6 +52,16 @@
 
     svg {
         transition: all 0.3s ease-in-out;
+    }
+
+    @include tablet {
+        width: 44px;
+        height: 44px;
+
+        svg {
+            width: 14px;
+            height: 14px;
+        }
     }
 }
 

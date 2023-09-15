@@ -1,4 +1,10 @@
+@import "styles/responsive.scss";
+
 .title {
     font-size: 2.8em;
     font-weight: 500;
+
+    @include tablet {
+        font-size: 1.6em;
+    }
 }

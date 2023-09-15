@@ -1,3 +1,12 @@
+@import "styles/responsive.scss";
+
+.diagnostics {
+    @include tablet {
+        position: relative;
+        margin-bottom: 82px;
+    }
+}
+
 .diagnosticsHead {
     display: flex;
     align-items: end;
@@ -8,6 +17,10 @@
 .title {
     font-size: 2.8em;
     font-weight: 500;
+
+    @include tablet {
+        font-size: 1.6em;
+    }
 }
 
 .cards {
@@ -15,4 +28,17 @@
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(2, auto);
     gap: 20px;
+
+    @include tablet {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.button {
+    @include tablet {
+        position: absolute;
+        bottom: -82px;
+        width: 100%;
+    }
 }

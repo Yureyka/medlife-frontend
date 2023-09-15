@@ -2,10 +2,11 @@ import React from "react";
 import { utils, writeFile } from "xlsx";
 import { useQuery } from "@tanstack/react-query";
 import { Container, Button, Accordion } from "ui";
-import { ServicesApi, IService } from "api";
+import { ServicesApi } from "api";
 
 import styles from "./Prices.module.scss";
 import axios from "axios";
+import { IService } from "interfaces";
 
 export const Prices: React.FC = () => {
   const { data } = useQuery(["serviceGroupsAll"], ServicesApi.getGroupsWithServices);

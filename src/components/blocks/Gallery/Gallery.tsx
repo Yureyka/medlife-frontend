@@ -7,6 +7,7 @@ import styles from "./Gallery.module.scss";
 
 import { useQuery } from "@tanstack/react-query";
 import { GalleryApi } from "api";
+import { BACKEND_URL } from "helpers";
 
 export const Gallery: React.FC = () => {
   const [visible, setVisible] = React.useState(false);
@@ -30,12 +31,12 @@ export const Gallery: React.FC = () => {
               styles[`galleryItem-${(index + 1) % 12}`]
             )}
           >
-            <img src={`http://localhost:3004/${image}`} alt={name} />
+            <img src={`${BACKEND_URL}/${image}`} alt={name} />
           </div>
         ))}
         <FsLightbox
           toggler={visible}
-          sources={data?.map(({ image }) => `http://localhost:3004/${image}`)}
+          sources={data?.map(({ image }) => `${BACKEND_URL}/${image}`)}
           sourceIndex={activeImage}
         />
       </section>

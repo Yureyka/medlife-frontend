@@ -9,7 +9,7 @@ import { ICarousel } from "interfaces";
 
 const settings: Settings = {
   dots: false,
-  infinite: false,
+  infinite: true,
   arrows: false,
   speed: 2000,
   slidesToShow: 3,
@@ -18,6 +18,18 @@ const settings: Settings = {
   swipeToSlide: true,
   autoplay: true,
   autoplaySpeed: 4000,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        speed: 1000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true,
+      },
+    },
+  ],
 };
 
 export const Carousel: React.FC<ICarousel> = ({ children }) => {

@@ -1,7 +1,13 @@
+@import "styles/responsive.scss";
+
 .pageHeading {
     padding: 42px 0;
     border-radius: 16px;
     background-color: #F09937;
+
+    @include tablet {
+        padding: 16px;
+    }
 }
 
 .pageTitle {
@@ -9,6 +15,11 @@
     font-weight: 500;
     line-height: 70px;
     color: #fff;
+
+    @include tablet {
+        font-size: 1.6em;
+        line-height: 42px;
+    }
 }
 
 .headingBottom {
@@ -30,5 +41,15 @@
         path {
             stroke: #fff;
         }
+    }
+
+    @include tablet {
+        display: none;
+    }
+}
+
+.breadcrumbs {
+    @include tablet {
+        display: none;
     }
 }

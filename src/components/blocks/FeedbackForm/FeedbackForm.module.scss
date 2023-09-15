@@ -1,6 +1,12 @@
+@import "styles/responsive.scss";
+
 .feedback_form {
     display: flex;
     gap: 20px;
+
+    @include tablet {
+        flex-direction: column;
+    }
 }
 
 .form {
@@ -8,6 +14,14 @@
     border-radius: 16px;
     padding: 56px;
     width: 100%;
+
+    @include tablet {
+        padding: 48px !important;
+    }
+
+    @include mobile-sm {
+        padding: 16px !important;
+    }
 }
 
 .withMap {
@@ -19,8 +33,17 @@
     gap: 30px;
     width: 55%;
 
+    @include tablet {
+        width: 100%;
+        gap: 24px;
+    }
+
     .title {
         margin-bottom: 32px;
+
+        @include tablet {
+            margin-bottom: 0;
+        }
     }
 
     .formGroup {
@@ -34,6 +57,10 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+
+    @include tablet {
+        gap: 16px !important;
+    }
 }
 
 .fromWithoutMap {
@@ -49,6 +76,23 @@
     label {
         top: 29px;
     }
+
+    @include tablet {
+        grid-template-columns: 1fr;
+
+        label {
+            top: 20px;
+        }
+
+        input {
+            height: 60px;
+
+            &:focus-visible+label,
+            &:not(:placeholder-shown)+label {
+                top: 8px;
+            }
+        }
+    }
 }
 
 .subTitle {
@@ -56,18 +100,37 @@
     font-size: 1em;
     line-height: 28px;
     color: #818181;
+
+    @include mobile-lg {
+        font-size: 0.8em;
+        margin-bottom: 24px;
+    }
 }
 
 .title {
     font-size: 2.8em;
     font-weight: 500;
     margin-bottom: 16px;
+
+    @include tablet {
+        font-size: 1.6em;
+
+    }
 }
 
 .mapWrapper {
     width: 45%;
     border-radius: 16px;
     overflow: hidden;
+
+    @include tablet {
+        width: 100%;
+        height: 500px;
+    }
+
+    @include mobile-sm {
+        height: 300px;
+    }
 }
 
 .map {

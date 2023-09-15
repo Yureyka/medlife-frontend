@@ -1,6 +1,8 @@
+@import "styles/responsive.scss";
+
 .advantageCard {
     background-color: #F7F7F7;
-    width: 48%;
+    width: 100%;
     padding: 16px;
     border: 1px solid #F099371A;
     border-radius: 16px;
@@ -16,16 +18,28 @@
 .title {
     font-size: 1.6em;
     font-weight: 600;
+
+    @include tablet {
+        font-size: 1.2em;
+    }
 }
 
 .description {
     font-size: 1em;
     font-weight: 500;
     margin-bottom: 32px;
+
+    @include tablet {
+        font-size: 0.8em;
+    }
 }
 
 .counter {
     font-size: 1.2em;
     font-weight: 600;
     color: #F09937;
+
+    @include tablet {
+        font-size: 0.8em;
+    }
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import "rc-table/assets/index.css";
 import "./Table.scss";
 

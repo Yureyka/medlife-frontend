@@ -6,6 +6,7 @@ import testImage from "assets/images/x-ray.jpg";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { TeamApi } from "api";
+import { BACKEND_URL } from "helpers";
 
 export const EmployeePage: React.FC = () => {
   const { id } = useParams();
@@ -19,7 +20,7 @@ export const EmployeePage: React.FC = () => {
       <EmployeeInfo
         experienceYears={data?.experience!}
         experience={data?.experienceDetails!}
-        image={`http://localhost:3004/${data?.image}`}
+        image={`${BACKEND_URL}/${data?.image}`}
       />
     </PageLayout>
   );

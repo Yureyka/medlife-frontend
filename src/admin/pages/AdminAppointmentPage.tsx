@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import moment from "moment";
 import { Filter, Modal, Table } from "ui";
 import { AdminLayout } from "./AdminLayout";
@@ -9,40 +9,7 @@ import { ArrowDiagonal } from "icons";
 import { ICallRequest } from "interfaces";
 
 import styles from "./AdminLayout.module.scss";
-import { debounce } from "helpers";
-
-const COLUMNS = [
-  {
-    title: "Имя",
-    dataIndex: "name",
-    key: "name",
-    width: 300,
-  },
-  {
-    title: "Телефон",
-    dataIndex: "phone",
-    key: "phone",
-    width: 300,
-  },
-  {
-    title: "Дата",
-    dataIndex: "date",
-    key: "date",
-    width: 150,
-  },
-  {
-    title: "Время",
-    dataIndex: "time",
-    key: "time",
-    width: 150,
-  },
-  {
-    title: "☑",
-    dataIndex: "isHandled",
-    key: "isHandled",
-    width: 40,
-  },
-];
+import { debounce, usePlatform } from "helpers";
 
 const PAGE_SIZE = 12;
 
@@ -51,6 +18,8 @@ export const AdminAppointmentPage: React.FC = () => {
   const [filterValue, setFilterValue] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [rowData, setRowData] = useState<ICallRequest | null>(null);
+
+  const { isMobile } = usePlatform();
 
   const { data, refetch } = useQuery(
     ["callRequests", [currentPage, filterValue]],
@@ -119,13 +88,46 @@ export const AdminAppointmentPage: React.FC = () => {
     handleSearch(value);
   }, 500);
 
+  const getColumnsConfig = () => [
+    {
+      title: "☑",
+      dataIndex: "isHandled",
+      key: "isHandled",
+      width: 40,
+    },
+    {
+      title: "Имя",
+      dataIndex: "name",
+      key: "name",
+      width: isMobile ? 100 : 300,
+    },
+    {
+      title: "Телефон",
+      dataIndex: "phone",
+      key: "phone",
+      width: isMobile ? 100 : 300,
+    },
+    {
+      title: "Дата",
+      dataIndex: "date",
+      key: "date",
+      width: isMobile ? 100 : 150,
+    },
+    {
+      title: "Время",
+      dataIndex: "time",
+      key: "time",
+      width: isMobile ? 100 : 150,
+    },
+  ];
+
   return (
     <AdminLayout>
       <div className={styles.actions}>
         <Filter onSearch={debouncedSearch} placeholder="Поиск" />
       </div>
       <Table
-        columns={COLUMNS}
+        columns={getColumnsConfig()}
         data={data?.data}
         formatter={formatData}
         onRowClick={handleRowClick}
@@ -139,7 +141,8 @@ export const AdminAppointmentPage: React.FC = () => {
             </div>
           }
           onPageChange={onPageChange}
-          pageRangeDisplayed={3}
+          pageRangeDisplayed={2}
+          marginPagesDisplayed={1}
           pageCount={parseInt(data?.totalCount as string)}
           previousLabel={
             <div className="paginationItem">

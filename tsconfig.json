@@ -36,7 +36,8 @@
       "helpers": ["src/helpers"],
       "api": ["src/api"],
       "adminPages": ["src/admin/pages"],
-      "interfaces": ["src/interfaces"]
+      "interfaces": ["src/interfaces"],
+      "styles": ["src/styles"]
     }
   },
   "include": ["src", "src/admin/pages/AdminGalleryPage.tsx"],

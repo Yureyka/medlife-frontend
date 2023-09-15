@@ -1,3 +1,5 @@
+@import "styles/responsive.scss";
+
 .modal {
     opacity: 0;
     display: flex;
@@ -44,6 +46,11 @@
             background-color: #a3a3a3;
             background-clip: padding-box;
         }
+
+        @include mobile-lg {
+            min-width: 350px;
+            padding: 44px 12px 12px;
+        }
     }
 
     .closeButton {
@@ -68,5 +75,9 @@
                 stroke: #aaaaaa;
             }
         }
+    }
+
+    @include mobile-lg {
+        padding: 0 12px;
     }
 }

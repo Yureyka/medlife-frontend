@@ -19,8 +19,10 @@ export const Modal: React.FC<IModal> = ({ isOpen, onClose, children }) => {
 
   useEffect(() => {
     if (isOpen) {
+      window.document.body.style.overflow = "hidden"
       document.addEventListener("mousedown", handleOutsideClick);
     } else {
+      window.document.body.style.overflow = "auto"
       document.removeEventListener("mousedown", handleOutsideClick);
     }
 

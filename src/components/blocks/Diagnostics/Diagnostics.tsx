@@ -47,7 +47,7 @@ export const Diagnostics: React.FC = () => {
             диагностических услуг
           </h3>
 
-          <Button linkButton href="#">
+          <Button className={styles.button} linkButton href="#">
             смотреть все
           </Button>
         </div>

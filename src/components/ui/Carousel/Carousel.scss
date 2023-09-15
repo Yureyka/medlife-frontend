@@ -1,8 +1,35 @@
+@import "styles/responsive.scss";
+
+.slick-slider {
+    @include tablet {
+        overflow: hidden;
+    }
+}
+
 .slick-list {
     margin: 0 -6px !important;
     overflow: visible !important;
 }
 
-.slick-slide > div {
+.slick-slide>div {
     padding: 0 6px;
+}
+
+.slick-dots {
+    display: flex !important;
+    justify-content: center;
+    gap: 12px;
+
+    li button {
+        background-color: #f1f1f1 !important;
+        font-size: 0;
+        width: 20px !important;
+        height: 20px !important;
+        border-radius: 50% !important;
+        border: none;
+    }
+
+    .slick-active button {
+        background-color: #c4c4c4 !important;
+    }
 }

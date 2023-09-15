@@ -1,0 +1,7 @@
+@import "styles/responsive.scss";
+
+.blocksDivider {
+    @include tablet {
+        margin-bottom: 98px !important;
+    }
+}

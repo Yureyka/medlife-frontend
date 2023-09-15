@@ -1,23 +1,36 @@
+@import "styles/responsive.scss";
+
 .title {
     font-size: 2.8em;
     font-weight: 500;
     margin-bottom: 40px;
+
+    @include tablet {
+        font-size: 1.6em;
+    }
 }
 
 .review {
     background-color: #F7F7F7;
     border-radius: 16px;
     padding: 32px 24px;
-    height: 375px;
 }
 
 .name {
     font-size: 1.6em;
     font-weight: 600;
     margin-bottom: 24px;
+
+    @include tablet {
+        font-size: 1em;
+    }
 }
 
 .text {
     font-size: 1em;
     font-weight: 500;
+
+    @include tablet {
+        font-size: 0.8em;
+    }
 }

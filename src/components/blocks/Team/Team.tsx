@@ -5,6 +5,7 @@ import styles from "./Team.module.scss";
 
 import { useQuery } from "@tanstack/react-query";
 import { TeamApi } from "api";
+import { BACKEND_URL } from "helpers";
 
 export const Team: React.FC = () => {
   const { data } = useQuery(["getTeam"], TeamApi.getTeam);
@@ -17,7 +18,7 @@ export const Team: React.FC = () => {
             <div>
               <div className={styles.imageWrapper}>
                 <img
-                  src={`http://localhost:3004/${image}`}
+                  src={`${BACKEND_URL}/${image}`}
                   alt={`${position} ${fullName}`}
                 />
               </div>

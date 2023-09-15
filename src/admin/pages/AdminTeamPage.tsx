@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Filter, Input, Modal, Select, Table } from "ui";
 import { AdminLayout } from "./AdminLayout";
 import { ServicesApi, TeamApi } from "api";
@@ -9,29 +9,8 @@ import { ArrowDiagonal } from "icons";
 import { IDoctor, IServiceGroup, IService } from "interfaces";
 
 import styles from "./AdminLayout.module.scss";
-import { debounce } from "helpers";
+import { debounce, usePlatform } from "helpers";
 import { FileLoader, MultipleInput } from "../components";
-
-const COLUMNS = [
-  {
-    title: "Имя",
-    dataIndex: "fullName",
-    key: "fullName",
-    width: 400,
-  },
-  {
-    title: "Должность",
-    dataIndex: "position",
-    key: "position",
-    width: 300,
-  },
-  {
-    title: "Стаж",
-    dataIndex: "experience",
-    key: "experience",
-    width: 100,
-  },
-];
 
 const PAGE_SIZE = 12;
 
@@ -40,6 +19,7 @@ export const AdminTeamPage: React.FC = () => {
   const [filterValue, setFilterValue] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [rowData, setRowData] = useState<IDoctor | null>(null);
+  const { isMobile } = usePlatform();
 
   const { data, refetch } = useQuery(
     ["getPaginatedDoctors", [currentPage, filterValue]],
@@ -141,6 +121,27 @@ export const AdminTeamPage: React.FC = () => {
     handleSearch(value);
   }, 500);
 
+  const getColumnsConfig = () => [
+    {
+      title: "Имя",
+      dataIndex: "fullName",
+      key: "fullName",
+      width: isMobile ? 250 : 400,
+    },
+    {
+      title: "Должность",
+      dataIndex: "position",
+      key: "position",
+      width: isMobile ? 200 : 300,
+    },
+    {
+      title: "Стаж",
+      dataIndex: "experience",
+      key: "experience",
+      width: isMobile ? 70 : 100,
+    },
+  ];
+
   return (
     <AdminLayout>
       <div className={styles.actions}>
@@ -149,7 +150,11 @@ export const AdminTeamPage: React.FC = () => {
           Добавить
         </button>
       </div>
-      <Table columns={COLUMNS} data={data?.data} onRowClick={handleRowClick} />
+      <Table
+        columns={getColumnsConfig()}
+        data={data?.data}
+        onRowClick={handleRowClick}
+      />
       <div className="pagination">
         <ReactPaginate
           breakLabel={<div className="paginationItem">...</div>}
@@ -159,7 +164,8 @@ export const AdminTeamPage: React.FC = () => {
             </div>
           }
           onPageChange={onPageChange}
-          pageRangeDisplayed={3}
+          pageRangeDisplayed={2}
+          marginPagesDisplayed={1}
           pageCount={parseInt(data?.totalCount as string)}
           previousLabel={
             <div className="paginationItem">

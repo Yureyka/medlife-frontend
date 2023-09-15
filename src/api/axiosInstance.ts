@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosResponse, AxiosInstance } from "axios";
+import { BACKEND_URL } from "helpers";
 
 export type PaginationResponse<T> = {
   page: string;
@@ -12,7 +13,7 @@ interface ApiResponse {
 }
 
 const _instance: AxiosInstance = axios.create({
-  baseURL: "http://localhost:3004",
+  baseURL: BACKEND_URL,
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",

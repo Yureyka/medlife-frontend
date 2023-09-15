@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Filter, Input, Modal, Select, Table } from "ui";
 import { AdminLayout } from "./AdminLayout";
 import { ServicesApi } from "api";
@@ -9,32 +9,11 @@ import { ArrowDiagonal } from "icons";
 import { IOption, IServiceGroup, IService } from "interfaces";
 
 import styles from "./AdminLayout.module.scss";
-import { debounce } from "helpers";
+import { debounce, usePlatform } from "helpers";
 
 type RowSerivce = Omit<IService, "serviceGroup"> & {
   serviceGroup: IOption;
 };
-
-const COLUMNS = [
-  {
-    title: "Название",
-    dataIndex: "name",
-    key: "name",
-    width: 400,
-  },
-  {
-    title: "Цена",
-    dataIndex: "price",
-    key: "price",
-    width: 100,
-  },
-  {
-    title: "Группа",
-    dataIndex: "serviceGroup",
-    key: "serviceGroup",
-    width: 200,
-  },
-];
 
 const PAGE_SIZE = 12;
 
@@ -43,6 +22,8 @@ export const AdminServicesPage: React.FC = () => {
   const [filterValue, setFilterValue] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [rowData, setRowData] = useState<RowSerivce | null>(null);
+
+  const { isMobile } = usePlatform();
 
   const { data, refetch } = useQuery(
     ["services", [currentPage, filterValue]],
@@ -170,6 +151,27 @@ export const AdminServicesPage: React.FC = () => {
     handleSearch(value);
   }, 500);
 
+  const getColumnsConfig = () => [
+    {
+      title: "Название",
+      dataIndex: "name",
+      key: "name",
+      width: isMobile ? 200 : 400,
+    },
+    {
+      title: "Цена",
+      dataIndex: "price",
+      key: "price",
+      width: 100,
+    },
+    {
+      title: "Группа",
+      dataIndex: "serviceGroup",
+      key: "serviceGroup",
+      width: isMobile ? 150 : 200,
+    },
+  ];
+
   return (
     <AdminLayout>
       <div className={styles.actions}>
@@ -179,7 +181,7 @@ export const AdminServicesPage: React.FC = () => {
         </button>
       </div>
       <Table
-        columns={COLUMNS}
+        columns={getColumnsConfig()}
         data={data?.data}
         onRowClick={handleRowClick}
         formatter={formatData}
@@ -193,7 +195,8 @@ export const AdminServicesPage: React.FC = () => {
             </div>
           }
           onPageChange={onPageChange}
-          pageRangeDisplayed={3}
+          pageRangeDisplayed={2}
+          marginPagesDisplayed={1}
           pageCount={parseInt(data?.totalCount as string)}
           previousLabel={
             <div className="paginationItem">

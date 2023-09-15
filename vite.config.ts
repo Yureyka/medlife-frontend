@@ -36,6 +36,7 @@ export default defineConfig({
       api: `${path.join(__dirname, "./src/api")}`,
       adminPages: `${path.join(__dirname, "./src/admin/pages")}`,
       interfaces: `${path.join(__dirname, "./src/interfaces")}`,
+      styles: `${path.join(__dirname, "./src/styles")}`,
     },
   },
 });

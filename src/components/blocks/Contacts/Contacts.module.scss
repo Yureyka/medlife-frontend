@@ -1,7 +1,17 @@
+@import "styles/responsive.scss";
+
 .contacts {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile-lg {
+        grid-template-columns: 1fr;
+    }
 }
 
 .contact {
@@ -13,25 +23,36 @@
     border-radius: 16px;
     text-align: center;
     transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     &:hover {
         cursor: pointer;
         border-color: #F09937;
+    }
+
+    @include mobile-lg {
+        height: 200px;
+        padding: 16px;
     }
 }
 
 .info {
     font-size: 1.2em;
     line-height: 32px;
-    margin-top: 40px;
+
+    @include tablet {
+        font-size: 0.9em;
+    }
 }
 
 .title {
-    position: absolute;
-    bottom: 32px;
-    left: 50%;
-    transform: translate(-50%);
     font-size: 1em;
     font-weight: 500;
     color: #818181;
+
+    @include tablet {
+        font-size: 0.8em;
+    }
 }

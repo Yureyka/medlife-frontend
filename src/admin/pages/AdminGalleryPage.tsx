@@ -10,6 +10,7 @@ import { IGalleryItem } from "interfaces";
 
 import styles from "./AdminLayout.module.scss";
 import { FileLoader } from "../components";
+import { BACKEND_URL } from "helpers";
 
 const PAGE_SIZE = 6;
 
@@ -100,36 +101,36 @@ export const AdminGalleryPage: React.FC = () => {
               }}
             >
               <div className={styles.galleryImgWrapper}>
-                <img
-                  src={`http://localhost:3004/${item.image}`}
-                  alt={item.name}
-                />
+                <img src={`${BACKEND_URL}/${item.image}`} alt={item.name} />
               </div>
               <h5 className={styles.galleryItemName}>{item.name}</h5>
             </div>
           );
         })}
       </div>
-      <div className="pagination">
-        <ReactPaginate
-          breakLabel={<div className="paginationItem">...</div>}
-          nextLabel={
-            <div className="paginationItem">
-              <ArrowDiagonal />
-            </div>
-          }
-          onPageChange={onPageChange}
-          pageRangeDisplayed={3}
-          pageCount={parseInt(data?.totalCount as string)}
-          previousLabel={
-            <div className="paginationItem">
-              <ArrowDiagonal />
-            </div>
-          }
-          pageClassName="paginationItem"
-          renderOnZeroPageCount={null}
-        />
-      </div>
+      {parseInt(data?.totalCount as string) === 1 ? null : (
+        <div className="pagination">
+          <ReactPaginate
+            breakLabel={<div className="paginationItem">...</div>}
+            nextLabel={
+              <div className="paginationItem">
+                <ArrowDiagonal />
+              </div>
+            }
+            onPageChange={onPageChange}
+            pageRangeDisplayed={2}
+            marginPagesDisplayed={1}
+            pageCount={parseInt(data?.totalCount as string)}
+            previousLabel={
+              <div className="paginationItem">
+                <ArrowDiagonal />
+              </div>
+            }
+            pageClassName="paginationItem"
+            renderOnZeroPageCount={null}
+          />
+        </div>
+      )}
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
         <form>
           {!rowData?._id ? (
@@ -154,10 +155,7 @@ export const AdminGalleryPage: React.FC = () => {
             </>
           ) : (
             <div className={styles.galleryModalImgWrapper}>
-              <img
-                src={`http://localhost:3004/${rowData.image}`}
-                alt={rowData.name}
-              />
+              <img src={`${BACKEND_URL}/${rowData.image}`} alt={rowData.name} />
             </div>
           )}
           <div className={styles.buttonGroup}>

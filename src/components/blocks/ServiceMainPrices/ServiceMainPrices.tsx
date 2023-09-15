@@ -51,7 +51,7 @@ export const ServiceMainPrices: React.FC = () => {
             <div className={styles.card}>
               <h5 className={styles.serviceTitle}>{title}</h5>
               <div className={styles.content}>
-                <div>
+                <div className={styles.priceInfo}>
                   <p className={styles.serviceSubtitle}>стоимость</p>
                   <p className={styles.price}>{price}</p>
                 </div>
