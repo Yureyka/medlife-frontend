@@ -1,15 +1,16 @@
 import React from "react";
-import { utils, writeFile } from "xlsx";
 import { useQuery } from "@tanstack/react-query";
 import { Container, Button, Accordion } from "ui";
 import { ServicesApi } from "api";
 
 import styles from "./Prices.module.scss";
-import axios from "axios";
 import { IService } from "interfaces";
 
 export const Prices: React.FC = () => {
-  const { data } = useQuery(["serviceGroupsAll"], ServicesApi.getGroupsWithServices);
+  const { data } = useQuery(
+    ["serviceGroupsAll"],
+    ServicesApi.getGroupsWithServices
+  );
 
   if (!data) {
     return null;
@@ -46,11 +47,12 @@ export const Prices: React.FC = () => {
           <Button onClick={handleFetchTable}>загрузить в XLS</Button>
         </div>
         {data.map((group) => (
-          <Accordion
-            key={group.name}
-            title={group.name}
-            content={prepareServices(group.services)}
-          />
+          <div key={group.name} id={group.key}>
+            <Accordion
+              title={group.name}
+              content={prepareServices(group.services)}
+            />
+          </div>
         ))}
       </Container>
     </section>

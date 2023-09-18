@@ -1,64 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Container } from "ui";
-import { WideImageWrapper } from "blocks";
-
-import tomographyImage from "assets/images/tomography.jpg";
 
 import styles from "./ServiceMainPrices.module.scss";
+import { IServiceMainPrices } from "src/interfaces/blocks";
+import { AppointmentModal } from "blocks";
 
-const data: any = [
-  {
-    title: "КТ головного мозга",
-    price: "3 800 ₽",
-  },
-  {
-    title: "КТ органов шеи",
-    price: "3 800 ₽",
-  },
-  {
-    title: "КТ височных кистей",
-    price: "3 800 ₽",
-  },
-  {
-    title: "КТ всего позвоночника",
-    price: "3 800 ₽",
-  },
-  {
-    title: "КТ органов забрюшинного пространства",
-    price: "3 800 ₽",
-  },
-  {
-    title: "КТ – ангиография почечных артерий",
-    price: "3 800 ₽",
-  },
-  {
-    title: "КТ – ангиография сосудов головного мозга",
-    price: "3 800 ₽",
-  },
-  {
-    title: "КТ – ангиография легочных артерий",
-    price: "3 800 ₽",
-  },
-];
+export const ServiceMainPrices: React.FC<IServiceMainPrices> = ({ data }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-export const ServiceMainPrices: React.FC = () => {
+  const getRandomServices = () => {
+    const sorted = data.sort(() => 0.5 - Math.random());
+    return sorted.slice(0, 8);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <Container>
       <section className={styles.servicesPrices}>
         <h3 className={styles.title}>Цены</h3>
         <div className={styles.cards}>
-          {data.map(({ title, price }) => (
-            <div className={styles.card}>
-              <h5 className={styles.serviceTitle}>{title}</h5>
-              <div className={styles.content}>
-                <div className={styles.priceInfo}>
-                  <p className={styles.serviceSubtitle}>стоимость</p>
-                  <p className={styles.price}>{price}</p>
+          {getRandomServices().map(({ name, price }) =>
+            name.includes("ШТРАФ") ? null : (
+              <div key={name} className={styles.card}>
+                <h5 className={styles.serviceTitle}>{name}</h5>
+                <div className={styles.content}>
+                  <div className={styles.priceInfo}>
+                    <p className={styles.serviceSubtitle}>стоимость</p>
+                    <p className={styles.price}>{price}</p>
+                  </div>
+                  <Button
+                    onClick={() => {
+                      setIsModalOpen(true);
+                    }}
+                  >
+                    записаться
+                  </Button>
                 </div>
-                <Button>записаться</Button>
               </div>
-            </div>
-          ))}
+            )
+          )}
         </div>
         <p className={styles.contactPriceInfo}>
           Ознакомиться с полным перечнем услуг и их стоимостью вы можете в
@@ -66,6 +49,7 @@ export const ServiceMainPrices: React.FC = () => {
           604-16-01
         </p>
       </section>
+      <AppointmentModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </Container>
   );
 };

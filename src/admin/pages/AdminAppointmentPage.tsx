@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import moment from "moment";
+import cn from "classnames";
 import { Filter, Modal, Table } from "ui";
 import { AdminLayout } from "./AdminLayout";
-import { CallRequestApi } from "api";
+import { AppointmentApi, ServicesApi } from "api";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import ReactPaginate from "react-paginate";
 import { ArrowDiagonal } from "icons";
-import { ICallRequest } from "interfaces";
+import { IAppointment } from "interfaces";
 
 import styles from "./AdminLayout.module.scss";
-import { debounce, usePlatform } from "helpers";
+import { CONTACT_NETWORKS, debounce, usePlatform } from "helpers";
 
 const PAGE_SIZE = 12;
 
@@ -17,26 +18,32 @@ export const AdminAppointmentPage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [filterValue, setFilterValue] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [rowData, setRowData] = useState<ICallRequest | null>(null);
+  const [rowData, setRowData] = useState<IAppointment | null>(null);
 
   const { isMobile } = usePlatform();
 
   const { data, refetch } = useQuery(
-    ["callRequests", [currentPage, filterValue]],
-    () => CallRequestApi.getCallRequests(PAGE_SIZE, currentPage, filterValue)
+    ["appointments", [currentPage, filterValue]],
+    () =>
+      AppointmentApi.getAppointmentRequests(PAGE_SIZE, currentPage, filterValue)
+  );
+
+  const { data: groups } = useQuery(
+    ["getServiceGroups"],
+    ServicesApi.getGroups
   );
 
   const updateMutation = useMutation(
-    ["updateRequest"],
-    CallRequestApi.updateCallRequest,
+    ["updateAppointment"],
+    AppointmentApi.updateAppointmentRequest,
     {
       onSuccess: () => refetch(),
     }
   );
 
   const deleteMutation = useMutation(
-    ["deleteRequest"],
-    CallRequestApi.deleteCallRequest,
+    ["deleteAppointment"],
+    AppointmentApi.deleteAppointmentRequest,
     {
       onSuccess: () => refetch(),
     }
@@ -46,12 +53,15 @@ export const AdminAppointmentPage: React.FC = () => {
     setIsModalOpen(false);
   };
 
-  const handleRowClick = (data: ICallRequest) => {
+  const handleRowClick = (data: IAppointment) => {
     setIsModalOpen(true);
     setRowData({
       _id: data._id,
       name: data.name,
       phone: data.phone,
+      online: data.online,
+      serviceGroup: data.serviceGroup,
+      message: data.message,
       isHandled: data.isHandled,
     });
   };
@@ -64,11 +74,28 @@ export const AdminAppointmentPage: React.FC = () => {
     setFilterValue(value);
   };
 
-  const formatData = (data: ICallRequest[]) => {
+  const getContactNetwork = (key: string | undefined, isTable: boolean) => {
+    const network = CONTACT_NETWORKS.find((net) => net.key === key);
+
+    return network ? (
+      <div className={cn({ [styles.tableIcon]: isTable })}>
+        {network.icon()}
+      </div>
+    ) : (
+      "Нет"
+    );
+  };
+
+  const formatData = (data: IAppointment[]) => {
     return data?.map((item) => {
       return {
         ...item,
-        isHandled: item.isHandled ? "✅︎" : "",
+        online: getContactNetwork(item.online, true),
+        isHandled: item.isHandled ? (
+          <div className={styles.tableIcon}>✅︎</div>
+        ) : (
+          ""
+        ),
         date: moment(item.createdAt).format("DD-MM-YYYY"),
         time: moment(item.createdAt).format("HH:MM:ss"),
       };
@@ -80,6 +107,9 @@ export const AdminAppointmentPage: React.FC = () => {
       _id: rowData!._id,
       name: rowData!.name,
       phone: rowData!.phone,
+      online: rowData!.online,
+      serviceGroupId: rowData!.serviceGroup.value,
+      message: rowData!.message,
       isHandled: true,
     });
   };
@@ -90,7 +120,7 @@ export const AdminAppointmentPage: React.FC = () => {
 
   const getColumnsConfig = () => [
     {
-      title: "☑",
+      title: " ",
       dataIndex: "isHandled",
       key: "isHandled",
       width: 40,
@@ -118,6 +148,12 @@ export const AdminAppointmentPage: React.FC = () => {
       dataIndex: "time",
       key: "time",
       width: isMobile ? 100 : 150,
+    },
+    {
+      title: "Онлайн",
+      dataIndex: "online",
+      key: "online",
+      width: 80,
     },
   ];
 
@@ -155,8 +191,36 @@ export const AdminAppointmentPage: React.FC = () => {
       </div>
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
         <form>
-          <p className={styles.modalInfo}>{rowData?.name}</p>
-          <p className={styles.modalInfo}>{rowData?.phone}</p>
+          <div className={styles.modalInfo}>
+            <div className={styles.modalInfoItem}>
+              <span>Имя:</span>
+              <p className={styles.infoFieldname}>{rowData?.name}</p>
+            </div>
+            <div className={styles.modalInfoItem}>
+              <span>Телефон:</span>
+              <p className={styles.infoFieldname}>{rowData?.phone}</p>
+            </div>
+            <div className={styles.modalInfoItem}>
+              <span>Услуга:</span>
+              <p className={styles.infoFieldname}>
+                {
+                  groups?.find((group) => {
+                    return rowData?.serviceGroup === group._id;
+                  })?.name
+                }
+              </p>
+            </div>
+            <div className={styles.modalInfoItem}>
+              <span>Онлайн:</span>
+              <p className={styles.infoFieldname}>
+                {getContactNetwork(rowData?.online, false)}
+              </p>
+            </div>
+            <div className={styles.modalInfoItem}>
+              <span>Сообщение:</span>
+              <p className={styles.infoFieldname}>{rowData?.message}</p>
+            </div>
+          </div>
 
           <div className={styles.buttonGroup}>
             {!rowData?.isHandled && (
@@ -165,6 +229,7 @@ export const AdminAppointmentPage: React.FC = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   handleSendIsHandled();
+                  handleCloseModal();
                 }}
               >
                 Заявка обработана
@@ -175,7 +240,7 @@ export const AdminAppointmentPage: React.FC = () => {
                 className={styles.deleteButton}
                 onClick={(e) => {
                   e.preventDefault();
-                  deleteMutation.mutate(rowData!._id);
+                  deleteMutation.mutate(rowData!._id!);
                   handleCloseModal();
                 }}
               >

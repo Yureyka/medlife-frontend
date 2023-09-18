@@ -6,6 +6,8 @@ import xRayImage from "assets/images/x-ray.jpg";
 import xRayProcess from "assets/images/x-ray_large.jpg";
 
 import styles from "./ServiceDetails.module.scss";
+import { useQuery } from "@tanstack/react-query";
+import { ServicesApi } from "api";
 
 const QUESTIONS = [
   {
@@ -46,6 +48,10 @@ const QUESTIONS = [
 ];
 
 export const XRay: React.FC = () => {
+  const { data } = useQuery(["getGroupWithServices"], () =>
+    ServicesApi.getGroupWithServices("x-ray_diagnostics")
+  );
+
   return (
     <Container>
       <section className={styles.serviceDetails}>
@@ -81,7 +87,9 @@ export const XRay: React.FC = () => {
           </div>
         </div>
         <Divider />
-        <ServiceMainPrices />
+        {data && (
+          <ServiceMainPrices key="x-ray_diagnostics" data={data.services} />
+        )}
         <Divider />
         <Questions questions={QUESTIONS} />
       </section>

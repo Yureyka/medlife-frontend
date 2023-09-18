@@ -1,6 +1,6 @@
 // import React from "react";
 // import { connect } from "react-redux";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import {
   ServicesPage,
   TomographyPage,
@@ -17,11 +17,13 @@ import {
   FetalPage,
   GalleryPage,
   PricesPage,
+  NewsDetailsPage,
 } from "pages";
 import {
   AdminAppointmentPage,
   AdminCallRequestsPage,
   AdminGalleryPage,
+  AdminNewsPage,
   AdminServicesPage,
   AdminTeamPage,
 } from "adminPages";
@@ -46,6 +48,7 @@ const App = () => (
       <Route path="/gallery" element={<GalleryPage />} />
       <Route path="/contacts" element={<ContactsPage />} />
       <Route path="/prices" element={<PricesPage />} />
+      <Route path="/news/:id" element={<NewsDetailsPage />} />
       <Route
         path="/for_patient/initial_appointment"
         element={<InitialAppointmentPage />}
@@ -59,7 +62,7 @@ const App = () => (
       <Route path="/admin/gallery" element={<AdminGalleryPage />} />
       <Route path="/admin/call-requests" element={<AdminCallRequestsPage />} />
       <Route path="/admin/appointment" element={<AdminAppointmentPage />} />
-      {/* <Route path="/contacts" element={<ContactsPage />} /> */}
+      <Route path="/admin/news" element={<AdminNewsPage />} />
     </Routes>
     {/* <Routes>
       <Route

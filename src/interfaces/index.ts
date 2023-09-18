@@ -12,6 +12,8 @@ export {
   type CallRequestPayload,
   type IAppointment,
   type AppointmentPayload,
+  type INews,
+  type NewsPayload,
 } from "./api";
 export {
   type IAdvantageCard,
@@ -28,7 +30,6 @@ export {
   type ICarousel,
   type IContainer,
   type IDropdown,
-  type IInfiniteScroll,
   type IInput,
   type IModal,
   type IOption,

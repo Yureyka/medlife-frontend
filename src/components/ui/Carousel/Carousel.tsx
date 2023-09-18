@@ -12,12 +12,12 @@ const settings: Settings = {
   infinite: true,
   arrows: false,
   speed: 2000,
-  slidesToShow: 3,
+  slidesToShow: 2,
   slidesToScroll: 1,
   swipe: true,
-  swipeToSlide: true,
-  autoplay: true,
-  autoplaySpeed: 4000,
+  // swipeToSlide: true,
+  // autoplay: true,
+  autoplaySpeed: 6000,
   responsive: [
     {
       breakpoint: 1024,

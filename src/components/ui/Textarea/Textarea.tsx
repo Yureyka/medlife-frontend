@@ -1,26 +1,23 @@
 import React from "react";
 import cn from "classnames";
-import styles from "./Input.module.scss";
+import styles from "./Textarea.module.scss";
 import { IInput } from "interfaces";
 
-export const Input: React.FC<IInput> = ({
+export const Textarea: React.FC<IInput> = ({
   label,
   value,
   onChange,
-  type,
-  defaultValue,
   invalidMessage,
-  ...inputProps
+  maxLength,
 }) => {
   return (
     <div className={styles.inputContainer}>
-      <input
+      <textarea
         placeholder=" "
         className={cn(styles.input, { [styles.invalid]: invalidMessage })}
         value={value}
         onChange={onChange}
-        type={type}
-        {...inputProps}
+        maxLength={maxLength || 150}
       />
       <label className={styles.label}>{label}</label>
       {invalidMessage && <p className={styles.error}>{invalidMessage}</p>}

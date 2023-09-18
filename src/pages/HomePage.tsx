@@ -7,6 +7,7 @@ import {
   Advantages,
   Reviews,
   FeedbackForm,
+  News,
 } from "blocks";
 import { Divider } from "ui";
 import { Footer } from "common";
@@ -17,13 +18,15 @@ export const HomePage: React.FC = () => (
   <>
     <MainBanner></MainBanner>
     <Divider />
-    <AboutInfo></AboutInfo>
+    <AboutInfo />
     <Divider />
     <Diagnostics></Diagnostics>
     <Divider />
     <WideImageWrapper img={dividerImg} />
     <Divider />
     <Advantages />
+    <Divider />
+    <News />
     <Divider />
     <Reviews />
     <Divider />

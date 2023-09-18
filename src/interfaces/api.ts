@@ -85,17 +85,36 @@ export interface IAppointment {
   _id?: string;
   name: string;
   phone: string;
-  service: IOption;
+  serviceGroup: IOption;
   online?: string;
   message?: string;
-  isHadled?: boolean;
+  isHandled?: boolean;
+  createdAt?: string;
 }
 
 export type AppointmentPayload = {
   _id?: string;
   name: string;
   phone: string;
-  service: string;
+  serviceGroupId: string;
   online?: string;
   message?: string;
+  isHandled?: boolean;
+};
+
+export interface INews {
+  _id?: string;
+  title: string;
+  image: string | File | FormData;
+  description: string;
+  isShowing?: boolean;
+  createdAt?: string;
+}
+
+export type NewsPayload = {
+  _id?: string;
+  title: string;
+  image: string | File | FormData;
+  description: string;
+  isShowing?: boolean;
 };

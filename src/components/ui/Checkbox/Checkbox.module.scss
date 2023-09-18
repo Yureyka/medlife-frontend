@@ -1,16 +1,47 @@
-/* CheckBox.module.scss */
-.checkboxWrapper {
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  .checkboxWrapper {
     display: flex;
     align-items: center;
   }
-  
+
   .checkboxLabel {
-    display: flex;
-    align-items: center;
+    position: relative;
+    padding-left: 36px;
+    font-size: 1em;
+    line-height: 24px;
+    color: #818181;
     cursor: pointer;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      background-color: transparent;
+      border: 1px solid #CFCFCF;
+      border-radius: 4px;
+      cursor: pointer;
+    }
   }
-  
-  .checkboxInput {
-    margin-right: 8px;
+
+  .checkmark {
+    font-size: 18px;
+    position: absolute;
+    left: 4px;
+    top: 6px;
+    width: 16px;
+    height: 8px;
+    border-bottom: 2px solid #f09937;
+    border-left: 2px solid #f09937;
+    transform: rotate(-45deg);
+    display: none;
   }
-  
+
+  .checkboxInput:checked+.checkmark {
+    display: block;
+  }

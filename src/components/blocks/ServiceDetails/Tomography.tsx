@@ -6,6 +6,8 @@ import tomographyProcess from "assets/images/tomography_large.jpg";
 import tomographImage from "assets/images/tomography.jpg";
 
 import styles from "./ServiceDetails.module.scss";
+import { ServicesApi } from "api";
+import { useQuery } from "@tanstack/react-query";
 
 const QUESTIONS = [
   {
@@ -42,6 +44,10 @@ const QUESTIONS = [
 ];
 
 export const Tomography: React.FC = () => {
+  const { data } = useQuery(["getGroupWithServices"], () =>
+    ServicesApi.getGroupWithServices("ct_scan")
+  );
+
   return (
     <Container>
       <section className={styles.serviceDetails}>
@@ -78,7 +84,7 @@ export const Tomography: React.FC = () => {
           </div>
         </div>
         <Divider />
-        <ServiceMainPrices />
+        {data && <ServiceMainPrices key="ct_scan" data={data.services} />}
         <Divider />
         <Questions questions={QUESTIONS} />
       </section>

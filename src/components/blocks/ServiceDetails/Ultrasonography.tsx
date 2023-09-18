@@ -5,6 +5,8 @@ import { Questions, ServiceMainPrices, WideImageWrapper } from "blocks";
 import usg from "assets/images/usg_large.jpg";
 
 import styles from "./ServiceDetails.module.scss";
+import { ServicesApi } from "api";
+import { useQuery } from "@tanstack/react-query";
 
 const QUESTIONS = [
   {
@@ -45,6 +47,10 @@ const QUESTIONS = [
 ];
 
 export const Ultrasonography: React.FC = () => {
+  const { data } = useQuery(["getGroupWithServices"], () =>
+    ServicesApi.getGroupWithServices("ultrasound_diagnostics")
+  );
+
   return (
     <Container>
       <section className={styles.serviceDetails}>
@@ -143,7 +149,7 @@ export const Ultrasonography: React.FC = () => {
         </p>
 
         <Divider />
-        <ServiceMainPrices />
+        {data && <ServiceMainPrices key="ultrasound_diagnostics" data={data.services} />}
         <Divider />
         <Questions questions={QUESTIONS} />
       </section>

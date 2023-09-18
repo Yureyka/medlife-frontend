@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Divider } from "ui";
-import { Questions, ServiceMainPrices, WideImageWrapper } from "blocks";
+import { Questions, WideImageWrapper } from "blocks";
 
 import fetalImage from "assets/images/fetal_large.jpg";
 
@@ -39,9 +39,6 @@ export const Fetal: React.FC = () => {
           нарушения в родовой деятельности.
         </p>
         <WideImageWrapper img={fetalImage} />
-
-        <Divider />
-        <ServiceMainPrices />
         <Divider />
         <Questions questions={QUESTIONS} />
       </section>

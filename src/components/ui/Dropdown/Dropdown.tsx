@@ -32,7 +32,7 @@ export const Dropdown: React.FC<IDropdown> = ({
 
   const handleOptionClick = (option: number) => {
     setSelectedOption(option);
-    onSelect && onSelect(option);
+    onSelect && onSelect(selectedOption);
     setIsOpen(false);
   };
 

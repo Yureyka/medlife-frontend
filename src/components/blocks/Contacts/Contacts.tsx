@@ -11,15 +11,20 @@ const CONTACTS = [
     icon: MapPoint,
     info: "298105, Крым Респ., г. Феодосия, Симферопольское ш., д. 41Б, корп. 2",
     title: "Адрес",
-    href: "",
+    href: "https://yandex.ru/maps/-/CDUyiT-C",
   },
   {
     icon: VK,
     info: "Медицинский центр «МЕДЛАЙФ»",
     title: "Группа Вконтакте",
-    href: "",
+    href: "https://vk.com/medlifefeo",
   },
-  { icon: Telegram, info: "@medlifefeo", title: "Telegram", href: "" },
+  {
+    icon: Telegram,
+    info: "@medlifefeo",
+    title: "Telegram",
+    href: "https://t.me/medlifefeo",
+  },
   {
     icon: PhoneHollow,
     info: (
@@ -28,10 +33,20 @@ const CONTACTS = [
       </span>
     ),
     title: "Телефоны",
-    href: "",
+    href: "tel:+79786041600",
   },
-  { icon: Mail, info: "center@medlife-feo.ru", title: "Email", href: "" },
-  { icon: Clock, info: "Пн-Сб 08:00-18:00", title: "Часы работы", href: "" },
+  {
+    icon: Mail,
+    info: "center@medlife-feo.ru",
+    title: "Email",
+    href: "mailto:center@medlife-feo.ru",
+  },
+  {
+    icon: Clock,
+    info: "Пн-Сб 08:00-18:00",
+    title: "Часы работы",
+    href: "https://yandex.ru/maps/-/CDUyiT-C",
+  },
 ];
 
 export const Contacts: React.FC = () => {

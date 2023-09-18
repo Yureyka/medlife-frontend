@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import moment from "moment";
 import { Filter, Modal, Table } from "ui";
 import { AdminLayout } from "./AdminLayout";
@@ -68,7 +68,7 @@ export const AdminCallRequestsPage: React.FC = () => {
     return data?.map((item) => {
       return {
         ...item,
-        isHandled: item.isHandled ? "✅︎" : "",
+        isHandled: item.isHandled ? <div className={styles.tableIcon}>✅︎</div> : "",
         date: moment(item.createdAt).format("DD-MM-YYYY"),
         time: moment(item.createdAt).format("HH:MM:ss"),
       };
@@ -90,7 +90,7 @@ export const AdminCallRequestsPage: React.FC = () => {
 
   const getColumnsConfig = () => [
     {
-      title: "☑",
+      title: " ",
       dataIndex: "isHandled",
       key: "isHandled",
       width: 40,

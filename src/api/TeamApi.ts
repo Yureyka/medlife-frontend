@@ -3,7 +3,7 @@ import { DoctorPayload, IDoctor } from "interfaces";
 
 export class TeamApi {
   static getTeam(): Promise<IDoctor[]> {
-    return instance.get(`/doctors/showAll`);
+    return instance.get(`/api/doctors/showAll`);
   }
 
   static getPaginatedTeam(
@@ -12,26 +12,26 @@ export class TeamApi {
     filter: string
   ): Promise<PaginationResponse<IDoctor[]>> {
     return instance.get(
-      `/doctors?pageSize=${pageSize}&page=${page}&filter=${filter}`
+      `/api/doctors?pageSize=${pageSize}&page=${page}&filter=${filter}`
     );
   }
 
   static getDoctorInfo(id: string): Promise<IDoctor> {
-    return instance.get(`/doctors/${id}`);
+    return instance.get(`/api/doctors/${id}`);
   }
 
   static deleteDoctor(id: string) {
-    return instance.delete(`/doctors/delete/${id}`);
+    return instance.delete(`/api/doctors/delete/${id}`);
   }
 
   static updateDoctor(options: DoctorPayload): Promise<IDoctor> {
-    return instance.put(`/doctors/update/${options._id}`, options, {
+    return instance.put(`/api/doctors/update/${options._id}`, options, {
       headers: { "Content-Type": "multipart/form-data" },
     });
   }
 
   static createDoctor(options: DoctorPayload): Promise<IDoctor> {
-    return instance.post(`/doctors/create`, options, {
+    return instance.post(`/api/doctors/create`, options, {
       headers: { "Content-Type": "multipart/form-data" },
     });
   }

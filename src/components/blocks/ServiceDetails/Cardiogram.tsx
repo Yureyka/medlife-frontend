@@ -5,6 +5,8 @@ import { Questions, ServiceMainPrices, WideImageWrapper } from "blocks";
 import cardiogramProcess from "assets/images/cardiogram_large.jpg";
 
 import styles from "./ServiceDetails.module.scss";
+import { ServicesApi } from "api";
+import { useQuery } from "@tanstack/react-query";
 
 const QUESTIONS = [
   {
@@ -69,6 +71,10 @@ const QUESTIONS = [
 ];
 
 export const Cardiogram: React.FC = () => {
+  const { data } = useQuery(["getGroupWithServices"], () =>
+    ServicesApi.getGroupWithServices("cardiology")
+  );
+
   return (
     <Container>
       <section className={styles.serviceDetails}>
@@ -94,7 +100,7 @@ export const Cardiogram: React.FC = () => {
           с повышенными физическими и психологическими нагрузками.
         </p>
         <Divider />
-        <ServiceMainPrices />
+        {data && <ServiceMainPrices key="cardiology" data={data.services} />}
         <Divider />
         <Questions questions={QUESTIONS} />
       </section>

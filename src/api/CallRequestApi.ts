@@ -8,19 +8,19 @@ export class CallRequestApi {
     filter: string
   ): Promise<PaginationResponse<ICallRequest[]>> {
     return instance.get(
-      `/call-requests?pageSize=${pageSize}&page=${page}&filter=${filter}`
+      `/api/call-requests?pageSize=${pageSize}&page=${page}&filter=${filter}`
     );
   }
 
   static deleteCallRequest(id: string) {
-    return instance.delete(`/call-requests/delete/${id}`);
+    return instance.delete(`/api/call-requests/delete/${id}`);
   }
 
   static createCallRequest(options: CallRequestPayload): Promise<ICallRequest> {
-    return instance.post(`/call-requests/create`, options);
+    return instance.post(`/api/call-requests/create`, options);
   }
 
   static updateCallRequest(options: CallRequestPayload): Promise<ICallRequest> {
-    return instance.put(`/call-requests/update/${options._id}`, options);
+    return instance.put(`/api/call-requests/update/${options._id}`, options);
   }
 }

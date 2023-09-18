@@ -11,6 +11,7 @@ const NAVIGATION = [
   { to: "/admin/gallery", label: "Галерея" },
   { to: "/admin/call-requests", label: "Обратные звонки" },
   { to: "/admin/appointment", label: "Заявки на прием" },
+  { to: "/admin/news", label: "Новости" },
 ];
 
 export const Navbar: React.FC = () => {

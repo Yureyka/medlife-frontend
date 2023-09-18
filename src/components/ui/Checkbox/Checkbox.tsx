@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Checkbox.module.scss";
 import { ICheckbox } from "interfaces";
 
@@ -16,6 +16,7 @@ export const Checkbox: React.FC<ICheckbox> = ({ label, checked, onChange }) => {
           onChange={handleChange}
           className={styles.checkboxInput}
         />
+        <span className={styles.checkmark}></span>
         {label}
       </label>
     </div>

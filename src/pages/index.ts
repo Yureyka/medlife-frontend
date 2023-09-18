@@ -11,6 +11,7 @@ export { EmployeePage } from "./EmployeePage";
 export { ContactsPage } from "./ContactsPage";
 export { GalleryPage } from "./GalleryPage";
 export { PricesPage } from "./PricesPage";
+export { NewsDetailsPage } from "./NewsDetailsPage";
 
 export { InitialAppointmentPage } from "./legal/InitialAppointmentPage";
 export { InternalOrderPage } from "./legal/InternalOrderPage";

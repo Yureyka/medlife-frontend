@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Filter, Input, Modal, Select, Table } from "ui";
+import React, { useState } from "react";
+import { Filter, Input, Modal, Table } from "ui";
 import { AdminLayout } from "./AdminLayout";
-import { ServicesApi, TeamApi } from "api";
+import { TeamApi } from "api";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import ReactPaginate from "react-paginate";
 import cn from "classnames";
 import { ArrowDiagonal } from "icons";
-import { IDoctor, IServiceGroup, IService } from "interfaces";
+import { IDoctor } from "interfaces";
 
 import styles from "./AdminLayout.module.scss";
 import { debounce, usePlatform } from "helpers";

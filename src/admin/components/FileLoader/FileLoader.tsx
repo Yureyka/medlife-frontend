@@ -12,10 +12,11 @@ export const FileLoader: React.FC<IFileLoader> = ({
   const [defaultImg, setDefaultImg] = useState<string | undefined>();
 
   useEffect(() => {
-    if (resetOnClose) {
+    return () => {
       handleImageReset();
-    }
+    };
   }, [resetOnClose]);
+
 
   useEffect(() => {
     !selectedImage && setDefaultImg(defaultImage);
@@ -35,8 +36,6 @@ export const FileLoader: React.FC<IFileLoader> = ({
     setSelectedImage(undefined);
     setDefaultImg(undefined);
   };
-
-  console.log(selectedImage, defaultImg);
 
   return (
     <div className={styles.imageUploader}>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Filter, Input, Modal, Select, Table } from "ui";
 import { AdminLayout } from "./AdminLayout";
 import { ServicesApi } from "api";

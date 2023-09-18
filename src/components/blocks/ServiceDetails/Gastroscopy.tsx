@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Divider } from "ui";
-import { Questions, ServiceMainPrices, WideImageWrapper } from "blocks";
+import { Questions, WideImageWrapper } from "blocks";
 
 import gastroscopyProcess from "assets/images/gastroscopy_large.jpg";
 
@@ -36,8 +36,6 @@ export const Gastroscopy: React.FC = () => {
           наиболее эффективный курс лечения.
         </p>
         <WideImageWrapper img={gastroscopyProcess} />
-        <Divider />
-        <ServiceMainPrices />
         <Divider />
         <Questions questions={QUESTIONS} />
       </section>

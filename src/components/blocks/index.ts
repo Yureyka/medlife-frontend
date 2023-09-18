@@ -6,6 +6,8 @@ export { Advantages } from "./Advantages/Advantages";
 export { Reviews } from "./Reviews/Reviews";
 export { FeedbackForm } from "./FeedbackForm/FeedbackForm";
 export { AppointmentModal } from "./AppointmentModal/AppointmentModal";
+export { News } from "./News/News";
+export { NewsDetails } from "./NewsDetails/NewsDetails";
 
 export { Services } from "./Services/Services";
 export { ServiceMainPrices } from "./ServiceMainPrices/ServiceMainPrices";

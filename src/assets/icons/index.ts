@@ -9,3 +9,7 @@ export { VK } from "./VK";
 export { Plus } from "./Plus";
 export { Cross } from "./Cross";
 export { Checkmark } from "./Checkmark";
+export { TelegramContact } from "./TelegramContact";
+export { WhatsappContact } from "./WhatsappContact";
+export { ViberContact } from "./ViberContact";
+export { SkypeContact } from "./SkypeContact";

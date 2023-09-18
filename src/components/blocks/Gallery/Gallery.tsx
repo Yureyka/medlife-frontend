@@ -14,7 +14,6 @@ export const Gallery: React.FC = () => {
   const [activeImage, setActiveImage] = React.useState(0);
 
   const { data } = useQuery(["getGallery"], GalleryApi.getGallery);
-  console.log(visible);
 
   return (
     <Container>

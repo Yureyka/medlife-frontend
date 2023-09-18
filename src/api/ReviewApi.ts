@@ -3,6 +3,6 @@ import { instance } from "./axiosInstance";
 
 export class ReviewApi {
   static getReviews(): Promise<IReview[]> {
-    return instance.get("/comments");
+    return instance.get("/api/comments");
   }
 }

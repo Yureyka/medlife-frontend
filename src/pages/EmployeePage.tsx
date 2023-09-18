@@ -2,7 +2,6 @@ import React from "react";
 import { EmployeeInfo } from "blocks";
 import { PageLayout } from "./PageLayout";
 
-import testImage from "assets/images/x-ray.jpg";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { TeamApi } from "api";

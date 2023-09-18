@@ -49,17 +49,13 @@ export interface ApiResponse {
   nextPage: number | null;
 }
 
-export interface IInfiniteScroll {
-  size: number;
-  list: any;
-  fetchPage: (pageItem: any) => any;
-}
-
 export interface IInput extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   value: string;
   invalidMessage?: string;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
   type?: "text" | "tel" | "number";
   defaultValue?: string;
 }
@@ -132,6 +128,6 @@ export interface IAppointmentModal {
 
 export interface ICheckbox {
   label: string;
-  checked: boolean;
+  checked: boolean | undefined;
   onChange: (checked: boolean) => void;
 }

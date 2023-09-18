@@ -19,3 +19,25 @@
 .formInput {
     margin-bottom: 16px;
 }
+
+.onlineNetworks {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.network {
+    cursor: pointer;
+    filter: grayscale(1);
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        filter: grayscale(0);
+    }
+
+    &.activeNetwork {
+        filter: grayscale(0);
+    }
+}

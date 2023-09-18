@@ -1,3 +1,5 @@
+import { IService } from "interfaces";
+
 export interface IEmployeeInfo {
   experienceYears: number;
   experience: {
@@ -5,6 +7,11 @@ export interface IEmployeeInfo {
     description: string;
   }[];
   image: string;
+}
+
+export interface IServiceMainPrices {
+  data: IService[];
+  key: string;
 }
 
 export interface IFeedbackForm {

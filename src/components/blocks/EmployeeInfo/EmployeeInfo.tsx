@@ -23,6 +23,7 @@ export const EmployeeInfo: React.FC<IEmployeeInfo> = ({
           {experience?.map(({ year, description }) => (
             <li
               className={styles.experienceItem}
+              key={description}
             >{`${year} — ${description}`}</li>
           ))}
         </ul>
