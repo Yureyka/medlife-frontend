@@ -1,4 +1,5 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useState } from "react";
+import cn from "classnames";
 import styles from "./FileLoader.module.scss";
 import { IFileLoader } from "interfaces";
 import { BACKEND_URL } from "helpers";
@@ -6,21 +7,8 @@ import { BACKEND_URL } from "helpers";
 export const FileLoader: React.FC<IFileLoader> = ({
   onImageUpload,
   defaultImage,
-  resetOnClose,
 }) => {
   const [selectedImage, setSelectedImage] = useState<File | undefined>();
-  const [defaultImg, setDefaultImg] = useState<string | undefined>();
-
-  useEffect(() => {
-    return () => {
-      handleImageReset();
-    };
-  }, [resetOnClose]);
-
-
-  useEffect(() => {
-    !selectedImage && setDefaultImg(defaultImage);
-  }, [defaultImage]);
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -32,32 +20,20 @@ export const FileLoader: React.FC<IFileLoader> = ({
     }
   };
 
-  const handleImageReset = () => {
-    setSelectedImage(undefined);
-    setDefaultImg(undefined);
-  };
-
   return (
     <div className={styles.imageUploader}>
-      {selectedImage || defaultImg ? (
+      {selectedImage || defaultImage ? (
         <>
           <div className={styles.previewImage}>
             <img
               src={
-                defaultImg
-                  ? `${BACKEND_URL}/${defaultImg}`
-                  : URL.createObjectURL(selectedImage!)
+                selectedImage
+                  ? URL.createObjectURL(selectedImage!)
+                  : `${BACKEND_URL}/${defaultImage}`
               }
               alt="Selected"
               className={styles.previewImage}
             />
-            <button
-              type="button"
-              onClick={handleImageReset}
-              className={styles.resetButton}
-            >
-              Сбросить
-            </button>
           </div>
         </>
       ) : (
@@ -70,8 +46,11 @@ export const FileLoader: React.FC<IFileLoader> = ({
         type="file"
         accept="image/*"
         onChange={handleImageChange}
-        className={styles.fileInput}
+        className={cn(styles.fileInput, {
+          [styles.isSelected]: !!selectedImage,
+        })}
       />
+      <div className={styles.selectedLabel}>Выбрать другое</div>
     </div>
   );
 };

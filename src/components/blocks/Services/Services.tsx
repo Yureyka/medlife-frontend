@@ -54,7 +54,7 @@ export const Services: React.FC = () => {
             </div>
             <div className={styles.content}>
               <h5 className={styles.serviceName}>{name}</h5>
-              <Button onlyIcon linkButton href={href} />
+              <Button ariaLabel={`Узнать подробнее о ${name}`} onlyIcon linkButton href={href} />
             </div>
           </div>
         ))}

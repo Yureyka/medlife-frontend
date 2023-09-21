@@ -1,3 +1,4 @@
+export { Eye } from "./Eye";
 export { ArrowDiagonal } from "./ArrowDiagonal";
 export { Phone } from "./Phone";
 export { Clock } from "./Clock";

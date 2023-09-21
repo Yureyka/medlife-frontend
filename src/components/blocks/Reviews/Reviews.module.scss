@@ -18,6 +18,12 @@
     background-color: #F7F7F7;
     border-radius: 16px;
     padding: 32px 24px;
+    min-height: 348px;
+    
+
+    @include tablet {
+        min-height: 203px;
+    }
 }
 
 .name {

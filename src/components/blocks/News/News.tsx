@@ -40,6 +40,7 @@ export const News: React.FC = () => {
                   {moment(news.createdAt).format("DD MMMM, YYYY")}
                 </p>
                 <Button
+                  ariaLabel="Открыть полную новость"
                   className={styles.link}
                   onlyIcon
                   linkButton

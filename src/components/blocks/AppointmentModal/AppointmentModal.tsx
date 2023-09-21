@@ -191,6 +191,7 @@ export const AppointmentModal: React.FC<IAppointmentModal> = ({
           </div>
           <div className={styles.buttonGroup}>
             <Button
+              ariaLabel="Записаться на прием"
               fullWidth
               onClick={(e) => {
                 e.preventDefault();

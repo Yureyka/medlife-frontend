@@ -5,3 +5,4 @@ export { TeamApi } from "./TeamApi";
 export { CallRequestApi } from "./CallRequestApi";
 export { AppointmentApi } from "./AppointmentApi";
 export { NewsApi } from "./NewsApi";
+export { UserApi } from "./UserApi";

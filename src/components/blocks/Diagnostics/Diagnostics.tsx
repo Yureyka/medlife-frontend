@@ -47,7 +47,12 @@ export const Diagnostics: React.FC = () => {
             диагностических услуг
           </h3>
 
-          <Button className={styles.button} linkButton href="/prices">
+          <Button
+            ariaLabel="Смотреть все услуги"
+            className={styles.button}
+            linkButton
+            href="/prices"
+          >
             смотреть все
           </Button>
         </div>

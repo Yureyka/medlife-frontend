@@ -6,12 +6,14 @@ import cn from "classnames";
 import logo from "assets/images/logo.png";
 
 const NAVIGATION = [
+  { to: "/admin/appointment", label: "Заявки на прием" },
+  { to: "/admin/call-requests", label: "Обратные звонки" },
   { to: "/admin/services", label: "Услуги" },
+  { to: "/admin/groups", label: "Группы услуг" },
   { to: "/admin/team", label: "Команда" },
   { to: "/admin/gallery", label: "Галерея" },
-  { to: "/admin/call-requests", label: "Обратные звонки" },
-  { to: "/admin/appointment", label: "Заявки на прием" },
   { to: "/admin/news", label: "Новости" },
+  { to: "/admin/comments", label: "Отзывы" },
 ];
 
 export const Navbar: React.FC = () => {

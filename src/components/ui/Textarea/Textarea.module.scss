@@ -41,6 +41,11 @@
   &:not(:placeholder-shown)+label {
     top: 8px;
     font-size: 0.6em;
+    padding-top: 8px;
+    /* padding-top: 10px; */
+    background-color: #fff;
+    top: 1px;
+    right: 20px;
   }
 }
 

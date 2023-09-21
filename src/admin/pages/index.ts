@@ -5,3 +5,6 @@ export { AdminGalleryPage } from "./AdminGalleryPage";
 export { AdminCallRequestsPage } from "./AdminCallRequestsPage";
 export { AdminAppointmentPage } from "./AdminAppointmentPage";
 export { AdminNewsPage } from "./AdminNewsPage";
+export { AdminServiceGroupsPage } from "./AdminServiceGroupsPage";
+export { AdminAuthPage } from "./AdminAuthPage";
+export { AdminCommentsPage } from "./AdminCommentsPage";

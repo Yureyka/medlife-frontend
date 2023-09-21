@@ -5,6 +5,7 @@ import styles from "./Contacts.module.scss";
 
 import { MapPoint, VK, Telegram, PhoneHollow, Mail, Clock } from "icons";
 import { Link } from "react-router-dom";
+import { ReviewForm } from "blocks";
 
 const CONTACTS = [
   {
@@ -64,6 +65,9 @@ export const Contacts: React.FC = () => {
             <p className={styles.title}>{contact.title}</p>
           </Link>
         ))}
+      </section>
+      <section className={styles.review}>
+        <ReviewForm></ReviewForm>
       </section>
     </Container>
   );

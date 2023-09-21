@@ -1,9 +1,11 @@
 export {
   type IGallery,
   type IReview,
+  type ReviewPayload,
   type IService,
   type IServiceGroup,
   type ServicePayload,
+  type ServiceGroupPayload,
   type IDoctor,
   type DoctorPayload,
   type IGalleryItem,
@@ -14,6 +16,8 @@ export {
   type AppointmentPayload,
   type INews,
   type NewsPayload,
+  type IUser,
+  type UserPayload,
 } from "./api";
 export {
   type IAdvantageCard,

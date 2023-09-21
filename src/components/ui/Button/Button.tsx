@@ -15,6 +15,7 @@ export const Button: React.FC<IButton> = ({
   linkButton,
   href,
   className,
+  ariaLabel,
   ...rest
 }) => {
   const classNames = cn(styles.button, className, {
@@ -34,11 +35,11 @@ export const Button: React.FC<IButton> = ({
   );
 
   return linkButton ? (
-    <Link className={classNames} to={href || "/"} {...rest}>
+    <Link aria-label={ariaLabel} className={classNames} to={href || "/"} {...rest}>
       {buttonContent}
     </Link>
   ) : (
-    <button className={classNames} {...rest}>
+    <button aria-label={ariaLabel} className={classNames} {...rest}>
       {buttonContent}
     </button>
   );

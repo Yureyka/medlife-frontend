@@ -2,6 +2,7 @@ import React from "react";
 import cn from "classnames";
 import styles from "./Input.module.scss";
 import { IInput } from "interfaces";
+import { transliterate } from "helpers";
 
 export const Input: React.FC<IInput> = ({
   label,
@@ -15,6 +16,7 @@ export const Input: React.FC<IInput> = ({
   return (
     <div className={styles.inputContainer}>
       <input
+        id={transliterate(label)}
         placeholder=" "
         className={cn(styles.input, { [styles.invalid]: invalidMessage })}
         value={value}
@@ -22,7 +24,9 @@ export const Input: React.FC<IInput> = ({
         type={type}
         {...inputProps}
       />
-      <label className={styles.label}>{label}</label>
+      <label htmlFor={transliterate(label)} className={styles.label}>
+        {label}
+      </label>
       {invalidMessage && <p className={styles.error}>{invalidMessage}</p>}
     </div>
   );

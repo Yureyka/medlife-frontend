@@ -5,6 +5,7 @@
 .info {
     display: flex;
     align-items: start;
+    gap: 20px;
     background-color: #F09937;
     border-radius: 16px;
     padding: 50px 90px;
@@ -37,6 +38,13 @@
 
 .docs {
     margin-top: 54px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    a {
+        text-decoration: underline;
+    }
 }
 
 .contactsTitle {

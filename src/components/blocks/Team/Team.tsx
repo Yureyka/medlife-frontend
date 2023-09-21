@@ -28,6 +28,7 @@ export const Team: React.FC = () => {
               </div>
             </div>
             <Button
+              ariaLabel={`Узнать подробнее о ${position} ${fullName}`}
               className={styles.button}
               onlyIcon
               linkButton

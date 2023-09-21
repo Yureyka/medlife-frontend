@@ -29,7 +29,7 @@ export const AdminAppointmentPage: React.FC = () => {
   );
 
   const { data: groups } = useQuery(
-    ["getServiceGroups"],
+    ["getServiceGroupsOptions"],
     ServicesApi.getGroups
   );
 
@@ -62,7 +62,6 @@ export const AdminAppointmentPage: React.FC = () => {
       online: data.online,
       serviceGroup: data.serviceGroup,
       message: data.message,
-      isHandled: data.isHandled,
     });
   };
 
@@ -194,15 +193,15 @@ export const AdminAppointmentPage: React.FC = () => {
           <div className={styles.modalInfo}>
             <div className={styles.modalInfoItem}>
               <span>Имя:</span>
-              <p className={styles.infoFieldname}>{rowData?.name}</p>
+              <p className={styles.modalInfoValue}>{rowData?.name}</p>
             </div>
             <div className={styles.modalInfoItem}>
               <span>Телефон:</span>
-              <p className={styles.infoFieldname}>{rowData?.phone}</p>
+              <p className={styles.modalInfoValue}>{rowData?.phone}</p>
             </div>
             <div className={styles.modalInfoItem}>
               <span>Услуга:</span>
-              <p className={styles.infoFieldname}>
+              <p className={styles.modalInfoValue}>
                 {
                   groups?.find((group) => {
                     return rowData?.serviceGroup === group._id;
@@ -212,13 +211,13 @@ export const AdminAppointmentPage: React.FC = () => {
             </div>
             <div className={styles.modalInfoItem}>
               <span>Онлайн:</span>
-              <p className={styles.infoFieldname}>
+              <p className={styles.modalInfoValue}>
                 {getContactNetwork(rowData?.online, false)}
               </p>
             </div>
             <div className={styles.modalInfoItem}>
               <span>Сообщение:</span>
-              <p className={styles.infoFieldname}>{rowData?.message}</p>
+              <p className={styles.modalInfoValue}>{rowData?.message}</p>
             </div>
           </div>
 

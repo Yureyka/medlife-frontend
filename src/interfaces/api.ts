@@ -7,9 +7,19 @@ export interface IGallery {
 }
 
 export interface IReview {
+  _id?: string;
   name: string;
   comment: string;
-  date: string;
+  isShowing: boolean;
+  createdAt?: string;
+}
+
+export interface ReviewPayload {
+  _id?: string;
+  name: string;
+  comment: string;
+  isShowing?: boolean;
+  createdAt?: string;
 }
 
 export interface IService {
@@ -21,6 +31,13 @@ export interface IService {
 
 export interface IServiceGroup {
   _id: string;
+  name: string;
+  key: string;
+  services: IService[];
+}
+
+export interface ServiceGroupPayload {
+  _id?: string;
   name: string;
   key: string;
   services: IService[];
@@ -117,4 +134,16 @@ export type NewsPayload = {
   image: string | File | FormData;
   description: string;
   isShowing?: boolean;
+};
+
+export interface IUser {
+  _id?: string;
+  login: string;
+  password: string;
+}
+
+export type UserPayload = {
+  _id?: string;
+  login: string;
+  password: string;
 };

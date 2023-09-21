@@ -11,8 +11,6 @@ export const NewsDetails: React.FC<INews> = ({
   image,
   createdAt,
 }) => {
-  console.log(createdAt);
-
   return (
     <section className={styles.news}>
       <Container>

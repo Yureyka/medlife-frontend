@@ -25,4 +25,14 @@ _instance.interceptors.response.use(
   }
 );
 
+_instance.interceptors.request.use((config) => {
+  const authToken: string | null = localStorage.getItem("authToken");
+
+  if (authToken) {
+      config.headers.token = authToken;
+  }
+
+  return config;
+});
+
 export const instance: AxiosInstance = _instance;

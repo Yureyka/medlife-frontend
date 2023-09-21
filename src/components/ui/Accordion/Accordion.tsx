@@ -22,7 +22,12 @@ export const Accordion: React.FC<IAccordion> = ({ title, content }) => {
         onClick={toggleAccordion}
       >
         <h3>{title}</h3>
-        <Button className={styles.plusButton} onlyIcon icon={<Plus />} />
+        <Button
+          ariaLabel="Раскрыть услуги данной группы"
+          className={styles.plusButton}
+          onlyIcon
+          icon={<Plus />}
+        />
       </div>
       <div
         className={cn(styles.accordionContent, {

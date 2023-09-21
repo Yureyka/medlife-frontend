@@ -38,7 +38,7 @@ export const Modal: React.FC<IModal> = ({ isOpen, onClose, children }) => {
       })}
     >
       <div className={styles.modalContent} ref={modalRef}>
-        <button className={styles.closeButton} onClick={handleClose}>
+        <button aria-label="Закрыть модальное окно" className={styles.closeButton} onClick={handleClose}>
           <Cross />
         </button>
         {children}

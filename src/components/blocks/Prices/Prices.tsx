@@ -44,7 +44,12 @@ export const Prices: React.FC = () => {
       <Container>
         <div className={styles.header}>
           <h3 className={styles.title}>Прайс-лист</h3>
-          <Button onClick={handleFetchTable}>загрузить в XLS</Button>
+          <Button
+            ariaLabel="Загрузить услуги и цены в формате XLS"
+            onClick={handleFetchTable}
+          >
+            загрузить в XLS
+          </Button>
         </div>
         {data.map((group) => (
           <div key={group.name} id={group.key}>

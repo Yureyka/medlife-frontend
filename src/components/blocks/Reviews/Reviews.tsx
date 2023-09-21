@@ -24,7 +24,7 @@ export const Reviews: React.FC = () => {
             <div key={index + name} className={styles.review}>
               <h5 className={styles.name}>{name}</h5>
 
-              <p className={styles.text}>{truncate(comment, 200)}</p>
+              <p className={styles.text}>{truncate(comment, 300)}</p>
             </div>
           );
         })}

@@ -10,6 +10,7 @@ export interface DividerProps {
 }
 
 export interface IButton {
+  ariaLabel?: string;
   disabled?: boolean;
   size?: "sm" | "lg";
   fullWidth?: boolean;
@@ -56,7 +57,7 @@ export interface IInput extends InputHTMLAttributes<HTMLInputElement> {
   onChange: (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
-  type?: "text" | "tel" | "number";
+  type?: "text" | "tel" | "number" | "password";
   defaultValue?: string;
 }
 

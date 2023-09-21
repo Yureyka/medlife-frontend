@@ -40,6 +40,7 @@
     color: #fff;
     border: 1px solid #F09937;
     padding: 0 20px;
+    cursor: pointer;
 }
 
 .buttonGroup {
@@ -145,6 +146,7 @@
     border: 1px solid #eeeeee;
     white-space: wrap;
     overflow: hidden;
+    cursor: pointer;
     transition: box-shadow 0.3s ease-in-out;
 
     &:hover {
@@ -192,6 +194,17 @@
     margin-bottom: 8px;
 }
 
+.modalInfoText {
+    font-size: 1em;
+    margin-bottom: 8px;
+}
+
+.modalInfoValue {
+    font-size: 0.8em;
+    font-weight: 400;
+    color: #313131;
+}
+
 .tableIcon {
     position: absolute;
     top: 50%;
@@ -212,5 +225,26 @@
 
     span {
         font-size: 14px;
+        color: #858585;
     }
+}
+
+.authorization {
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.authorizationForm {
+    padding: 30px;
+    background-color: rgb(243, 243, 243);
+    border-radius: 8px;
+}
+
+.authTitle {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 16px;
 }

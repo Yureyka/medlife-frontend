@@ -32,6 +32,7 @@ export const ServiceMainPrices: React.FC<IServiceMainPrices> = ({ data }) => {
                     <p className={styles.price}>{price}</p>
                   </div>
                   <Button
+                    ariaLabel="Записаться на прием"
                     onClick={() => {
                       setIsModalOpen(true);
                     }}

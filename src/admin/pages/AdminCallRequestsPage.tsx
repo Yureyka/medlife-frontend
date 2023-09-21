@@ -80,7 +80,6 @@ export const AdminCallRequestsPage: React.FC = () => {
       _id: rowData!._id,
       name: rowData!.name,
       phone: rowData!.phone,
-      isHandled: true,
     });
   };
 

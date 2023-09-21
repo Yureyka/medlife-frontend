@@ -13,41 +13,48 @@ export const MainBanner: React.FC = () => {
   };
 
   return (
-    <div className={styles.banner}>
-      <Container>
+    <>
+      <div className={styles.banner}>
         <Header isMainPage />
-        <div className={styles.bannerContent}>
-          <div className={styles.title}>
-            <h1>
-              Медицинский <br />
-              центр Медлайф
-            </h1>
-            <h3>Ваше здоровье в наших руках</h3>
+        <Container>
+          <div className={styles.bannerContent}>
+            <div className={styles.title}>
+              <h1>
+                Медицинский <br />
+                центр Медлайф
+              </h1>
+              <h3>Ваше здоровье в наших руках</h3>
+            </div>
+            <div className={styles.appointment}>
+              <Button
+                ariaLabel="Записаться на прием"
+                onClick={() => setIsModalOpen(true)}
+              >
+                записаться на прием
+              </Button>
+            </div>
           </div>
-          <div className={styles.appointment}>
-            <Button onClick={() => setIsModalOpen(true)}>
-              записаться на прием
-            </Button>
+          <div className={styles.advantages}>
+            <div className={styles.advantageCard}>
+              <span className={styles.metrics}>21</span>{" "}
+              <span className={styles.advantageText}>опытный специалист</span>
+            </div>
+            <div className={styles.advantageCard}>
+              <span className={styles.metrics}>92%</span>{" "}
+              <span className={styles.advantageText}>
+                положительных отзывов
+              </span>
+            </div>
+            <div className={styles.advantageCard}>
+              <span className={styles.metrics}>30+</span>{" "}
+              <span className={styles.advantageText}>
+                сертификатов и дипломов
+              </span>
+            </div>
           </div>
-        </div>
-        <div className={styles.advantages}>
-          <div className={styles.advantageCard}>
-            <span className={styles.metrics}>21</span>{" "}
-            <span className={styles.advantageText}>опытный специалист</span>
-          </div>
-          <div className={styles.advantageCard}>
-            <span className={styles.metrics}>92%</span>{" "}
-            <span className={styles.advantageText}>положительных отзывов</span>
-          </div>
-          <div className={styles.advantageCard}>
-            <span className={styles.metrics}>30+</span>{" "}
-            <span className={styles.advantageText}>
-              сертификатов и дипломов
-            </span>
-          </div>
-        </div>
-        <AppointmentModal isOpen={isModalOpen} onClose={handleCloseModal} />
-      </Container>
-    </div>
+          <AppointmentModal isOpen={isModalOpen} onClose={handleCloseModal} />
+        </Container>
+      </div>
+    </>
   );
 };
