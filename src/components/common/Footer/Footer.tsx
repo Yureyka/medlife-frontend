@@ -4,6 +4,8 @@ import styles from "./Footer.module.scss";
 import { Link } from "react-router-dom";
 
 import logo from "assets/images/logo_short.png";
+import work from "assets/images/work.jpg";
+import privacyPolicy from "assets/privacy_policy.pdf";
 
 export const Footer: React.FC = () => {
   return (
@@ -19,10 +21,7 @@ export const Footer: React.FC = () => {
             <Link to="https://roszdravnadzor.gov.ru/services/licenses/?downloadlic=756586&pdf=1">
               Лицензия ЛО41-01177-91/00327768 от 22.09.2021 г
             </Link>
-            <Link
-              target="_blank"
-              to="src/assets/images/work.jpg"
-            >
+            <Link target="_blank" to={work}>
               Данные о результатах проведения специальной оценки условий труда
             </Link>
           </div>
@@ -50,7 +49,11 @@ export const Footer: React.FC = () => {
           <img src={logo} alt="MedLife" className={styles.logo} />
         </Link>
         <span>© {new Date().getFullYear()} МЕДЛАЙФ - Медицинский центр</span>
-        <Link to="/" className={styles.privacyPolicy}>
+        <Link
+          target="_blank"
+          to={privacyPolicy}
+          className={styles.privacyPolicy}
+        >
           политика конфиденциальности
         </Link>
       </div>

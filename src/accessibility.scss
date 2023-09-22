@@ -24,8 +24,30 @@
     }
 }
 
-.linksHighlight {
-    a {
-        background-color: #646464;
+.lightContrast {
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    li {
+        filter: drop-shadow(0 0 1px black);
+    }
+}
+
+.grey {
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    li {
+        filter: drop-shadow(0 0 1px black);
     }
 }

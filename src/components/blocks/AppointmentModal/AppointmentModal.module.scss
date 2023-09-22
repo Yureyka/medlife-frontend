@@ -41,3 +41,13 @@
         filter: grayscale(0);
     }
 }
+
+.privacyLabel {
+    width: 500px;
+    font-size: 0.8em;
+
+    a {
+        color: #0000ff;
+        text-decoration: underline;
+    }
+}

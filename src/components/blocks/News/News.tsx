@@ -24,33 +24,40 @@ export const News: React.FC = () => {
       <Container>
         <h3 className={styles.title}>Новости</h3>
       </Container>
-      <Carousel>
-        {data?.map((news) => {
-          return (
-            <div key={news.title + news.createdAt} className={styles.newsItem}>
-              <div className={styles.imgWrapper}>
-                <img
-                  src={`${BACKEND_URL}/${news.image}`}
-                  alt={`Новость: ${news.title} ${news.description}`}
-                />
+      {data?.length === 0 ? (
+        <p className={styles.emptyInfo}>Новостей пока нет</p>
+      ) : (
+        <Carousel>
+          {data?.map((news) => {
+            return (
+              <div
+                key={news.title + news.createdAt}
+                className={styles.newsItem}
+              >
+                <div className={styles.imgWrapper}>
+                  <img
+                    src={`${BACKEND_URL}/${news.image}`}
+                    alt={`Новость: ${news.title} ${news.description}`}
+                  />
+                </div>
+                <h5 className={styles.newsTitle}>{news.title}</h5>
+                <div className={styles.newsBottom}>
+                  <p className={styles.date}>
+                    {moment(news.createdAt).format("DD MMMM, YYYY")}
+                  </p>
+                  <Button
+                    ariaLabel="Открыть полную новость"
+                    className={styles.link}
+                    onlyIcon
+                    linkButton
+                    href={`/news/${news._id}`}
+                  />
+                </div>
               </div>
-              <h5 className={styles.newsTitle}>{news.title}</h5>
-              <div className={styles.newsBottom}>
-                <p className={styles.date}>
-                  {moment(news.createdAt).format("DD MMMM, YYYY")}
-                </p>
-                <Button
-                  ariaLabel="Открыть полную новость"
-                  className={styles.link}
-                  onlyIcon
-                  linkButton
-                  href={`/news/${news._id}`}
-                />
-              </div>
-            </div>
-          );
-        })}
-      </Carousel>
+            );
+          })}
+        </Carousel>
+      )}
     </section>
   );
 };

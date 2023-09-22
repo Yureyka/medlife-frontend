@@ -17,28 +17,32 @@ export const Gallery: React.FC = () => {
 
   return (
     <Container>
-      <section className={styles.gallery}>
-        {data?.map(({ image, name }, index) => (
-          <div
-            key={name + index}
-            onClick={() => {
-              setVisible(!visible);
-              setActiveImage(index);
-            }}
-            className={cn(
-              styles.galleryItem,
-              styles[`galleryItem-${(index + 1) % 12}`]
-            )}
-          >
-            <img src={`${BACKEND_URL}/${image}`} alt={name} />
-          </div>
-        ))}
-        <FsLightbox
-          toggler={visible}
-          sources={data?.map(({ image }) => `${BACKEND_URL}/${image}`)}
-          sourceIndex={activeImage}
-        />
-      </section>
+      {data?.length === 0 ? (
+        <p className={styles.emptyInfo}>Фотографий пока нет</p>
+      ) : (
+        <section className={styles.gallery}>
+          {data?.map(({ image, name }, index) => (
+            <div
+              key={name + index}
+              onClick={() => {
+                setVisible(!visible);
+                setActiveImage(index);
+              }}
+              className={cn(
+                styles.galleryItem,
+                styles[`galleryItem-${(index + 1) % 12}`]
+              )}
+            >
+              <img src={`${BACKEND_URL}/${image}`} alt={name} />
+            </div>
+          ))}
+          <FsLightbox
+            toggler={visible}
+            sources={data?.map(({ image }) => `${BACKEND_URL}/${image}`)}
+            sourceIndex={activeImage}
+          />
+        </section>
+      )}
     </Container>
   );
 };

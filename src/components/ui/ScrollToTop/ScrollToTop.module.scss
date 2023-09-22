@@ -1,0 +1,21 @@
+.button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+
+  svg {
+    transform: rotate(-45deg);
+  }
+
+  &:hover {
+    svg {
+      transform: rotate(-45deg) !important;
+    }
+  }
+
+  &.visible {
+    opacity: 1;
+  }
+}

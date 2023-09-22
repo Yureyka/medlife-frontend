@@ -14,3 +14,4 @@ export { Checkbox } from "./Checkbox/Checkbox";
 export { Textarea } from "./Textarea/Textarea";
 export { Loader } from "./Loader/Loader";
 export { Accessibility } from "./Accessibility/Accessibility";
+export { ScrollToTop } from "./ScrollToTop/ScrollToTop";

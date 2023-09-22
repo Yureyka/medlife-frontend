@@ -5,7 +5,7 @@ import { PageLayout } from "../PageLayout";
 import styles from "./Legal.module.scss";
 
 export const InternalOrderPage: React.FC = () => (
-  <PageLayout title="Правила записи на первичный прием">
+  <PageLayout title="Правила внутреннего распорядка для потребителей услуг">
     <Container>
       <div className={styles.infoBlock}>
         <p className={styles.firstLevelItem}>

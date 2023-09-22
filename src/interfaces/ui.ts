@@ -128,7 +128,7 @@ export interface IAppointmentModal {
 }
 
 export interface ICheckbox {
-  label: string;
+  label: string | React.ReactNode;
   checked: boolean | undefined;
   onChange: (checked: boolean) => void;
 }

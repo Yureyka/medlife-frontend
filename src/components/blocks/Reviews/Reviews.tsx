@@ -18,17 +18,21 @@ export const Reviews: React.FC = () => {
       <Container>
         <h3 className={styles.title}>Отзывы наших клиентов</h3>
       </Container>
-      <Carousel>
-        {data.map(({ name, comment }, index) => {
-          return (
-            <div key={index + name} className={styles.review}>
-              <h5 className={styles.name}>{name}</h5>
+      {data?.length === 0 ? (
+        <p className={styles.emptyInfo}>Отзывов пока нет</p>
+      ) : (
+        <Carousel>
+          {data.map(({ name, comment }, index) => {
+            return (
+              <div key={index + name} className={styles.review}>
+                <h5 className={styles.name}>{name}</h5>
 
-              <p className={styles.text}>{truncate(comment, 300)}</p>
-            </div>
-          );
-        })}
-      </Carousel>
+                <p className={styles.text}>{truncate(comment, 300)}</p>
+              </div>
+            );
+          })}
+        </Carousel>
+      )}
     </section>
   );
 };

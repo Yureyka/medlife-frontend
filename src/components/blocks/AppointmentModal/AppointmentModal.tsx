@@ -9,6 +9,8 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { AppointmentApi, ServicesApi } from "api";
 import { CONTACT_NETWORKS } from "helpers";
 
+import privacyPolicy from "assets/privacy_policy.pdf";
+
 const PHONE_REGEXP = /(?:\+|\d)[\d\-\(\) ]{9,}\d/g;
 
 const validationSchema = yup.object().shape({
@@ -31,6 +33,7 @@ export const AppointmentModal: React.FC<IAppointmentModal> = ({
     message: "",
   });
   const [isOnlineChecked, setIsOnlineChecked] = useState(false);
+  const [isPrivacyChecked, setIsPrivacyChecked] = useState(false);
   const [errors, setErrors] = useState({ name: "", phone: "" });
 
   const { data: groups } = useQuery(
@@ -112,6 +115,19 @@ export const AppointmentModal: React.FC<IAppointmentModal> = ({
     }
   };
 
+  const getPrivacyPolicyLabel = () => {
+    return (
+      <div className={styles.privacyLabel}>
+        Я даю свое согласие на обработку моих персональных данных, в
+        соответствии с Федеральным Законом от 27.07.2006г. №152-ФЗ "О
+        персональных данных", на условиях и для целей, определенных{" "}
+        <a target="_blank" href={privacyPolicy}>
+          Политикой конфеденциальности
+        </a>
+      </div>
+    );
+  };
+
   return (
     <div className={styles.modal}>
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -189,8 +205,18 @@ export const AppointmentModal: React.FC<IAppointmentModal> = ({
               }}
             />
           </div>
+          <div className={styles.formInput}>
+            <Checkbox
+              checked={isPrivacyChecked}
+              label={getPrivacyPolicyLabel()}
+              onChange={(val) => {
+                setIsPrivacyChecked(val);
+              }}
+            ></Checkbox>
+          </div>
           <div className={styles.buttonGroup}>
             <Button
+              disabled={!isPrivacyChecked}
               ariaLabel="Записаться на прием"
               fullWidth
               onClick={(e) => {

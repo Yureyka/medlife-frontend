@@ -15,3 +15,7 @@ export { NewsDetailsPage } from "./NewsDetailsPage";
 
 export { InitialAppointmentPage } from "./legal/InitialAppointmentPage";
 export { InternalOrderPage } from "./legal/InternalOrderPage";
+export { GovContactsPage } from "./legal/GovContactsPage";
+export { LawPage } from "./legal/LawPage";
+export { VaccinePage } from "./legal/VaccinePage";
+export { CitizenPage } from "./legal/CitizenPage";

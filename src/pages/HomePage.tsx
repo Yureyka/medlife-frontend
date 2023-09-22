@@ -9,7 +9,7 @@ import {
   FeedbackForm,
   News,
 } from "blocks";
-import { Divider } from "ui";
+import { Accessibility, Divider, ScrollToTop } from "ui";
 import { Footer } from "common";
 
 import dividerImg from "assets/images/kt.jpg";
@@ -33,5 +33,7 @@ export const HomePage: React.FC = () => (
     <FeedbackForm withMap />
     <Divider />
     <Footer />
+    <Accessibility />
+    <ScrollToTop />
   </>
 );

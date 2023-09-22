@@ -16,6 +16,10 @@ import {
   GalleryPage,
   PricesPage,
   NewsDetailsPage,
+  GovContactsPage,
+  LawPage,
+  VaccinePage,
+  CitizenPage,
 } from "pages";
 
 export const ClientRoutes = () => {
@@ -46,6 +50,10 @@ export const ClientRoutes = () => {
         path="/for_patient/internal_order"
         element={<InternalOrderPage />}
       />
+      <Route path="/for_patient/gov" element={<GovContactsPage />} />
+      <Route path="/for_patient/law" element={<LawPage />} />
+      <Route path="/for_patient/vaccine" element={<VaccinePage />} />
+      <Route path="/for_patient/citizen" element={<CitizenPage />} />
     </Routes>
   );
 };

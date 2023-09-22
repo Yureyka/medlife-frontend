@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Footer, Header } from "common";
-import { Accessibility, Divider, PageHeading } from "ui";
+import { Accessibility, Divider, PageHeading, ScrollToTop } from "ui";
 import { FeedbackForm } from "blocks";
 import { IPageLayout } from "interfaces";
 
@@ -27,6 +27,7 @@ export const PageLayout: React.FC<IPageLayout> = ({
       <Divider />
       <Footer />
       <Accessibility />
+      <ScrollToTop />
     </>
   );
 };
